@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "honey-site",
+      "runtimeExecutable": "python",
+      "runtimeArgs": ["-m", "http.server", "3456", "--directory", "C:\\Users\\compa\\OneDrive\\Рабочий стол\\Мёд-сайт"],
+      "port": 3456
+    }
+  ]
+}
