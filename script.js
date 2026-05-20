@@ -119,6 +119,60 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  /* ─── СЛАЙДЕР «ЖИЗНЬ ПАСЕКИ» ─── */
+  const slider = document.getElementById('slider');
+  if (slider) {
+    const track = document.getElementById('sliderTrack');
+    const slides = track ? track.children : [];
+    const dotsWrap = document.getElementById('sliderDots');
+    const prevBtn = document.getElementById('slidePrev');
+    const nextBtn = document.getElementById('slideNext');
+    let index = 0;
+    const total = slides.length;
+
+    // Точки
+    for (let i = 0; i < total; i++) {
+      const dot = document.createElement('button');
+      dot.setAttribute('aria-label', 'Фото ' + (i + 1));
+      dot.addEventListener('click', () => go(i));
+      dotsWrap.appendChild(dot);
+    }
+    const dots = dotsWrap.children;
+
+    function render() {
+      track.style.transform = 'translateX(' + (-index * 100) + '%)';
+      for (let i = 0; i < dots.length; i++) dots[i].classList.toggle('active', i === index);
+    }
+    function go(i) { index = (i + total) % total; render(); restart(); }
+    function next() { go(index + 1); }
+    function prev() { go(index - 1); }
+
+    if (nextBtn) nextBtn.addEventListener('click', next);
+    if (prevBtn) prevBtn.addEventListener('click', prev);
+
+    // Автопрокрутка
+    let timer = null;
+    const reduceM = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    function start() { if (!reduceM) timer = setInterval(next, 4500); }
+    function stop() { if (timer) clearInterval(timer); }
+    function restart() { stop(); start(); }
+    slider.addEventListener('mouseenter', stop);
+    slider.addEventListener('mouseleave', start);
+
+    // Свайп на мобильных
+    let startX = 0, dx = 0, swiping = false;
+    track.addEventListener('touchstart', e => { startX = e.touches[0].clientX; swiping = true; stop(); }, { passive: true });
+    track.addEventListener('touchmove', e => { if (swiping) dx = e.touches[0].clientX - startX; }, { passive: true });
+    track.addEventListener('touchend', () => {
+      if (Math.abs(dx) > 50) (dx < 0 ? next() : prev());
+      else start();
+      dx = 0; swiping = false;
+    });
+
+    render();
+    start();
+  }
+
   /* ─── ПОКАЗ ПОЛЯ АДРЕСА ─── */
   const deliveryRadios = document.querySelectorAll('input[name="delivery"]');
   const addressGroup = document.getElementById('addressGroup');
