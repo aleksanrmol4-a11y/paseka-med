@@ -8,7 +8,7 @@
   <title>Пасека НИКОЛЬСКИЙ — Натуральный мёд с доставкой по России</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -17,7 +17,7 @@
   <div class="cookie-bar" id="cookieBar">
     <div class="cookie-bar__inner">
       <span>Мы используем файлы cookie. Продолжая использование сайта, вы соглашаетесь с <a href="privacy.html">Политикой конфиденциальности</a>.</span>
-      <button class="btn btn--gold btn--sm" id="cookieAccept">Принять</button>
+      <button class="btn btn--dark btn--sm" id="cookieAccept">Принять</button>
     </div>
   </div>
 
@@ -33,7 +33,6 @@
         <a href="#delivery">Доставка</a>
         <a href="#payment">Оплата</a>
         <a href="#reviews">Отзывы</a>
-        <a href="#order">Заказать</a>
       </nav>
       <div class="header__actions">
         <div class="header__socials">
@@ -47,8 +46,11 @@
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M15.684 0H8.316C1.592 0 0 1.592 0 8.316v7.368C0 22.408 1.592 24 8.316 24h7.368C22.408 24 24 22.408 24 15.684V8.316C24 1.592 22.408 0 15.684 0zm3.692 17.123h-1.744c-.66 0-.862-.523-2.049-1.727-1.033-1-1.49-1.135-1.744-1.135-.356 0-.458.102-.458.593v1.575c0 .424-.135.678-1.253.678-1.846 0-3.896-1.118-5.335-3.202C4.624 10.857 4.03 8.57 4.03 8.096c0-.254.102-.491.593-.491h1.744c.44 0 .61.203.78.677.864 2.49 2.303 4.675 2.896 4.675.22 0 .322-.102.322-.66V9.721c-.068-1.186-.695-1.287-.695-1.71 0-.204.17-.407.44-.407h2.744c.373 0 .508.203.508.643v3.473c0 .372.17.508.271.508.22 0 .407-.136.813-.542 1.254-1.406 2.151-3.574 2.151-3.574.119-.254.322-.491.762-.491h1.744c.525 0 .644.27.525.643-.22 1.017-2.354 4.031-2.354 4.031-.186.305-.254.44 0 .78.186.254.796.779 1.203 1.253.745.847 1.32 1.558 1.473 2.049.17.491-.085.745-.576.745z"/></svg>
           </a>
         </div>
-        <a href="tel:+79068161172" class="header__phone">+7 (906) 816-11-72</a>
-        <a href="#order" class="btn btn--gold btn--sm">Заказать</a>
+        <a href="tel:+79068161172" class="header__phone">
+          <span class="header__phone-label">Звоните</span>
+          +7 (906) 816-11-72
+        </a>
+        <a href="#order" class="btn btn--dark btn--sm">Заказать</a>
         <button class="burger" id="burger" aria-label="Открыть меню">
           <span></span><span></span><span></span>
         </button>
@@ -58,53 +60,103 @@
 
   <!-- ═══ HERO ═══ -->
   <section class="hero" id="home">
-    <div class="hero__pattern" aria-hidden="true"></div>
-    <div class="container hero__inner">
-      <div class="hero__content">
-        <div class="hero__badge">
-          <span class="badge-dot"></span>
-          Натуральный мёд · Без добавок · С пасеки
+    <div class="container">
+      <div class="hero__grid">
+        <div class="hero__content">
+          <span class="hero__eyebrow">🍯 Семейная пасека с 2009 года</span>
+          <h1 class="hero__title">Натуральный<br>мёд <span>с пасеки</span></h1>
+          <p class="hero__sub">Собираем вручную в экологически чистых угодьях. Без подогрева, без сахара, без добавок — только живой мёд.</p>
+          <div class="hero__cta">
+            <a href="#order" class="btn btn--dark btn--lg">Заказать мёд</a>
+            <a href="#products" class="btn btn--line btn--lg">Смотреть сорта</a>
+          </div>
         </div>
-        <h1 class="hero__title">
-          Мёд прямо<br>
-          <em>с пасеки</em>
-        </h1>
-        <p class="hero__sub">
-          Семейная пасека НИКОЛЬСКИЙ — натуральный мёд, собранный в экологически чистых угодьях. Без подогрева, без сахара. Доставляем по всей России.
-        </p>
-        <div class="hero__cta">
-          <a href="#order" class="btn btn--gold btn--lg">Оформить заказ</a>
-          <a href="#products" class="btn btn--ghost btn--lg">Выбрать мёд</a>
-        </div>
-        <div class="hero__stats">
-          <div class="hero-stat">
-            <span class="hero-stat__num">15+</span>
-            <span class="hero-stat__label">лет на пасеке</span>
+        <div class="hero__visual" aria-hidden="true">
+          <div class="hero__disc">
+            <div class="hero__jar">🍯</div>
           </div>
-          <div class="hero-stat__divider"></div>
-          <div class="hero-stat">
-            <span class="hero-stat__num">80+</span>
-            <span class="hero-stat__label">семей пчёл</span>
-          </div>
-          <div class="hero-stat__divider"></div>
-          <div class="hero-stat">
-            <span class="hero-stat__num">6</span>
-            <span class="hero-stat__label">сортов мёда</span>
-          </div>
-          <div class="hero-stat__divider"></div>
-          <div class="hero-stat">
-            <span class="hero-stat__num">1200+</span>
-            <span class="hero-stat__label">довольных клиентов</span>
+          <div class="hero__float hero__float--1">🐝</div>
+          <div class="hero__float hero__float--2">🌸</div>
+          <div class="hero__float hero__float--3">🌿</div>
+          <div class="hero__stamp">
+            <svg viewBox="0 0 120 120">
+              <defs>
+                <path id="stampPath" d="M 60,60 m -42,0 a 42,42 0 1,1 84,0 a 42,42 0 1,1 -84,0" />
+              </defs>
+              <text class="hero__stamp-text">
+                <textPath href="#stampPath">100% НАТУРАЛЬНЫЙ • БЕЗ САХАРА • С ПАСЕКИ • </textPath>
+              </text>
+            </svg>
+            <span class="hero__stamp-center">✓</span>
           </div>
         </div>
       </div>
-      <div class="hero__visual" aria-hidden="true">
-        <div class="hex-showcase">
-          <div class="hex hex--lg">🍯</div>
-          <div class="hex hex--sm hex--1">🌸</div>
-          <div class="hex hex--sm hex--2">🌿</div>
-          <div class="hex hex--sm hex--3">🐝</div>
+
+      <!-- ФАКТЫ -->
+      <div class="facts">
+        <div class="facts__row">
+          <div class="fact">
+            <span class="fact__label">Белки</span>
+            <span class="fact__value">0,8 г</span>
+          </div>
+          <div class="fact">
+            <span class="fact__label">Жиры</span>
+            <span class="fact__value">0 г</span>
+          </div>
+          <div class="fact">
+            <span class="fact__label">Углеводы</span>
+            <span class="fact__value">81 г</span>
+          </div>
+          <div class="fact">
+            <span class="fact__label">Калорийность</span>
+            <span class="fact__value">327 ккал</span>
+          </div>
         </div>
+        <p class="facts__note">Концентрированная польза без химии и добавок — в каждой ложке</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ СОСТАВ / ПОДХОД ═══ -->
+  <section class="recipe" id="recipe">
+    <div class="container">
+      <div class="recipe__head">
+        <h2 class="recipe__title">Секрет настоящего мёда —<br><span>честный подход</span></h2>
+        <div class="recipe__stamp">
+          <svg viewBox="0 0 130 130">
+            <defs>
+              <path id="recipePath" d="M 65,65 m -48,0 a 48,48 0 1,1 96,0 a 48,48 0 1,1 -96,0" />
+            </defs>
+            <text class="recipe__stamp-text">
+              <textPath href="#recipePath">НЕ СОДЕРЖИТ САХАРА • НЕ СОДЕРЖИТ ДОБАВОК • </textPath>
+            </text>
+          </svg>
+          <span class="recipe__stamp-center">НЕ<br>СОДЕРЖИТ</span>
+        </div>
+      </div>
+
+      <div class="recipe__grid">
+        <article class="ingredient fade-in">
+          <div class="ingredient__photo">🌿</div>
+          <div class="ingredient__body">
+            <h3>Чистый регион</h3>
+            <p>Пасека в 80 км от ближайшего города, вдали от трасс и заводов. Пчёлы собирают нектар с нетронутых лугов.</p>
+          </div>
+        </article>
+        <article class="ingredient ingredient--raised fade-in">
+          <div class="ingredient__photo">🐝</div>
+          <div class="ingredient__body">
+            <h3>Ручной сбор</h3>
+            <p>Качаем мёд бережно, в сезон, без спешки. Каждую партию проверяем сами — никакой автоматики и компромиссов.</p>
+          </div>
+        </article>
+        <article class="ingredient fade-in">
+          <div class="ingredient__photo">🍯</div>
+          <div class="ingredient__body">
+            <h3>Без подогрева</h3>
+            <p>Не топим и не пастеризуем мёд. Все ферменты, витамины и польза сохраняются в живом виде.</p>
+          </div>
+        </article>
       </div>
     </div>
   </section>
@@ -114,190 +166,110 @@
     <div class="container">
       <div class="section-head">
         <span class="section-tag">Каталог</span>
-        <h2 class="section-title">Наш мёд</h2>
-        <p class="section-sub">Все сорта собраны в сезон 2024 года. Каждая партия проходит лабораторную проверку.</p>
+        <h2 class="section-title">Наши сорта мёда</h2>
+        <p class="section-sub">Урожай сезона 2024 года. Каждая партия — с паспортом качества.</p>
       </div>
       <div class="products__grid">
 
         <article class="product-card fade-in">
-          <div class="product-card__top">
-            <div class="product-card__icon">🌸</div>
+          <div class="product-card__media">
+            <span class="product-card__emoji">🌸</span>
             <span class="product-badge">Хит</span>
           </div>
-          <h3>Цветочный</h3>
-          <p>Собирается с полевых цветов. Нежный аромат, светло-янтарный цвет, мягкий вкус без горечи.</p>
-          <ul class="product-props">
-            <li>Цвет: светло-янтарный</li>
-            <li>Вкус: мягкий, цветочный</li>
-            <li>Кристаллизация: медленная</li>
-          </ul>
-          <div class="product-card__prices">
-            <span>0,5 кг — <b>350 ₽</b></span>
-            <span>1 кг — <b>650 ₽</b></span>
-            <span>3 кг — <b>1 800 ₽</b></span>
+          <div class="product-card__body">
+            <h3>Цветочный</h3>
+            <p>Нежный аромат полевых цветов, светло-янтарный цвет, мягкий вкус без горечи.</p>
+            <div class="product-card__bottom">
+              <div class="product-price">
+                <span>от</span><b>350 ₽</b>
+              </div>
+              <a href="#order" class="btn btn--dark btn--sm">Заказать</a>
+            </div>
           </div>
-          <a href="#order" class="btn btn--gold btn--full">Заказать</a>
         </article>
 
         <article class="product-card fade-in">
-          <div class="product-card__top">
-            <div class="product-card__icon">🌾</div>
+          <div class="product-card__media">
+            <span class="product-card__emoji">🌾</span>
           </div>
-          <h3>Разнотравье</h3>
-          <p>Сборный мёд с луговых трав. Насыщенный тёплый аромат, золотистый цвет, умеренная сладость.</p>
-          <ul class="product-props">
-            <li>Цвет: золотисто-жёлтый</li>
-            <li>Вкус: травяной, тёплый</li>
-            <li>Кристаллизация: средняя</li>
-          </ul>
-          <div class="product-card__prices">
-            <span>0,5 кг — <b>330 ₽</b></span>
-            <span>1 кг — <b>620 ₽</b></span>
-            <span>3 кг — <b>1 700 ₽</b></span>
+          <div class="product-card__body">
+            <h3>Разнотравье</h3>
+            <p>Сборный луговой мёд, насыщенный тёплый аромат, золотистый цвет, умеренная сладость.</p>
+            <div class="product-card__bottom">
+              <div class="product-price"><span>от</span><b>330 ₽</b></div>
+              <a href="#order" class="btn btn--dark btn--sm">Заказать</a>
+            </div>
           </div>
-          <a href="#order" class="btn btn--gold btn--full">Заказать</a>
-        </article>
-
-        <article class="product-card product-card--dark fade-in">
-          <div class="product-card__top">
-            <div class="product-card__icon">🌰</div>
-            <span class="product-badge product-badge--dark">Премиум</span>
-          </div>
-          <h3>Гречишный</h3>
-          <p>Тёмный мёд с ярким насыщенным вкусом. Высокое содержание железа и антиоксидантов.</p>
-          <ul class="product-props">
-            <li>Цвет: тёмно-коричневый</li>
-            <li>Вкус: терпкий, насыщенный</li>
-            <li>Кристаллизация: быстрая</li>
-          </ul>
-          <div class="product-card__prices">
-            <span>0,5 кг — <b>420 ₽</b></span>
-            <span>1 кг — <b>780 ₽</b></span>
-            <span>3 кг — <b>2 100 ₽</b></span>
-          </div>
-          <a href="#order" class="btn btn--gold btn--full">Заказать</a>
         </article>
 
         <article class="product-card fade-in">
-          <div class="product-card__top">
-            <div class="product-card__icon">🌳</div>
+          <div class="product-card__media">
+            <span class="product-card__emoji">🌰</span>
+            <span class="product-badge">Премиум</span>
+          </div>
+          <div class="product-card__body">
+            <h3>Гречишный</h3>
+            <p>Тёмный мёд с ярким терпким вкусом. Богат железом и антиоксидантами.</p>
+            <div class="product-card__bottom">
+              <div class="product-price"><span>от</span><b>420 ₽</b></div>
+              <a href="#order" class="btn btn--dark btn--sm">Заказать</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="product-card fade-in">
+          <div class="product-card__media">
+            <span class="product-card__emoji">🌳</span>
             <span class="product-badge">Популярно</span>
           </div>
-          <h3>Липовый</h3>
-          <p>Классика пчеловодства. Нежный аромат липового цвета, белёсый цвет, мягкий сладкий вкус.</p>
-          <ul class="product-props">
-            <li>Цвет: белёсо-жёлтый</li>
-            <li>Вкус: нежный, цветочный</li>
-            <li>Кристаллизация: медленная</li>
-          </ul>
-          <div class="product-card__prices">
-            <span>0,5 кг — <b>450 ₽</b></span>
-            <span>1 кг — <b>850 ₽</b></span>
-            <span>3 кг — <b>2 300 ₽</b></span>
+          <div class="product-card__body">
+            <h3>Липовый</h3>
+            <p>Классика пчеловодства. Нежный аромат липового цвета, мягкий сладкий вкус.</p>
+            <div class="product-card__bottom">
+              <div class="product-price"><span>от</span><b>450 ₽</b></div>
+              <a href="#order" class="btn btn--dark btn--sm">Заказать</a>
+            </div>
           </div>
-          <a href="#order" class="btn btn--gold btn--full">Заказать</a>
         </article>
 
         <article class="product-card fade-in">
-          <div class="product-card__top">
-            <div class="product-card__icon">🌻</div>
+          <div class="product-card__media">
+            <span class="product-card__emoji">🌻</span>
           </div>
-          <h3>Подсолнечный</h3>
-          <p>Быстро кристаллизуется в нежную зернистую массу. Лёгкий аромат подсолнуха, приятный вкус.</p>
-          <ul class="product-props">
-            <li>Цвет: светло-жёлтый</li>
-            <li>Вкус: мягкий, чистый</li>
-            <li>Кристаллизация: быстрая</li>
-          </ul>
-          <div class="product-card__prices">
-            <span>0,5 кг — <b>300 ₽</b></span>
-            <span>1 кг — <b>560 ₽</b></span>
-            <span>3 кг — <b>1 500 ₽</b></span>
+          <div class="product-card__body">
+            <h3>Подсолнечный</h3>
+            <p>Быстро кристаллизуется в нежную зернистую массу. Лёгкий чистый вкус.</p>
+            <div class="product-card__bottom">
+              <div class="product-price"><span>от</span><b>300 ₽</b></div>
+              <a href="#order" class="btn btn--dark btn--sm">Заказать</a>
+            </div>
           </div>
-          <a href="#order" class="btn btn--gold btn--full">Заказать</a>
         </article>
 
-        <article class="product-card product-card--dark fade-in">
-          <div class="product-card__top">
-            <div class="product-card__icon">🤍</div>
-            <span class="product-badge product-badge--dark">Редкий</span>
+        <article class="product-card fade-in">
+          <div class="product-card__media">
+            <span class="product-card__emoji">🤍</span>
+            <span class="product-badge">Редкий</span>
           </div>
-          <h3>Акациевый</h3>
-          <p>Самый светлый и нежный. Почти прозрачный, долго не засахаривается, идеален для детей.</p>
-          <ul class="product-props">
-            <li>Цвет: прозрачно-белый</li>
-            <li>Вкус: деликатный, лёгкий</li>
-            <li>Кристаллизация: очень медленная</li>
-          </ul>
-          <div class="product-card__prices">
-            <span>0,5 кг — <b>480 ₽</b></span>
-            <span>1 кг — <b>900 ₽</b></span>
-            <span>3 кг — <b>2 500 ₽</b></span>
+          <div class="product-card__body">
+            <h3>Акациевый</h3>
+            <p>Самый светлый и нежный. Долго не засахаривается, идеален для детей.</p>
+            <div class="product-card__bottom">
+              <div class="product-price"><span>от</span><b>480 ₽</b></div>
+              <a href="#order" class="btn btn--dark btn--sm">Заказать</a>
+            </div>
           </div>
-          <a href="#order" class="btn btn--gold btn--full">Заказать</a>
         </article>
 
       </div>
 
-      <div class="products__bulk fade-in">
-        <div class="bulk-card">
-          <div class="bulk-card__icon">📦</div>
-          <div>
-            <h4>Оптовые заказы</h4>
-            <p>От 10 кг — индивидуальные цены. Фасовка в тару 3, 5, 10, 15, 25 кг.</p>
-          </div>
-          <a href="tel:+79068161172" class="btn btn--outline">Обсудить опт</a>
+      <div class="bulk fade-in">
+        <span class="bulk__emoji">📦</span>
+        <div class="bulk__text">
+          <h4>Оптовые заказы</h4>
+          <p>От 10 кг — индивидуальные цены. Фасовка 3, 5, 10, 15, 25 кг.</p>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══ ABOUT ═══ -->
-  <section class="about" id="about">
-    <div class="container about__inner">
-      <div class="about__visual fade-in">
-        <div class="about__hexes" aria-hidden="true">
-          <div class="about-hex about-hex--1">🐝</div>
-          <div class="about-hex about-hex--2">🌿</div>
-          <div class="about-hex about-hex--3">🍯</div>
-          <div class="about-hex about-hex--4">🌸</div>
-        </div>
-        <div class="about__cert-row">
-          <div class="cert-badge">✅ Без ГМО</div>
-          <div class="cert-badge">✅ Без добавок</div>
-          <div class="cert-badge">✅ Ручной сбор</div>
-          <div class="cert-badge">✅ Лаб. контроль</div>
-        </div>
-      </div>
-      <div class="about__text fade-in">
-        <span class="section-tag">О нас</span>
-        <h2 class="section-title">Пасека с душой</h2>
-        <p>Пасека НИКОЛЬСКИЙ ведёт историю с 2009 года. Мы расположены в экологически чистом районе, вдали от промышленных предприятий и автомагистралей — там, где пчёлы собирают нектар с нетронутых лугов и лесов.</p>
-        <p>Мы не подогреваем мёд, не добавляем сахар и не используем антибиотики. Каждая партия проходит лабораторный анализ, паспорт качества высылается вместе с заказом.</p>
-        <div class="about__features">
-          <div class="about-feature">
-            <span class="about-feature__icon">🏔</span>
-            <div>
-              <h4>Чистый регион</h4>
-              <p>Пасека находится в 80 км от ближайшего города</p>
-            </div>
-          </div>
-          <div class="about-feature">
-            <span class="about-feature__icon">🔬</span>
-            <div>
-              <h4>Лабораторный контроль</h4>
-              <p>Каждая партия проходит проверку на качество</p>
-            </div>
-          </div>
-          <div class="about-feature">
-            <span class="about-feature__icon">📦</span>
-            <div>
-              <h4>Бережная упаковка</h4>
-              <p>Стекло надёжно защищено — доходит целым</p>
-            </div>
-          </div>
-        </div>
-        <a href="#order" class="btn btn--gold">Заказать мёд</a>
+        <a href="tel:+79068161172" class="btn btn--line">Обсудить опт</a>
       </div>
     </div>
   </section>
@@ -306,31 +278,56 @@
   <section class="benefits" id="benefits">
     <div class="container">
       <div class="section-head">
-        <span class="section-tag">Польза</span>
-        <h2 class="section-title">Почему натуральный мёд</h2>
-        <p class="section-sub">Мёд — это живой продукт с научно подтверждёнными свойствами</p>
+        <span class="section-tag section-tag--light">Польза</span>
+        <h2 class="section-title section-title--light">Почему натуральный мёд</h2>
       </div>
       <div class="benefits__grid">
-        <div class="benefit-card fade-in">
-          <div class="benefit-card__icon">💪</div>
+        <div class="benefit fade-in">
+          <span class="benefit__icon">💪</span>
           <h3>Иммунитет</h3>
-          <p>Антибактериальные ферменты помогают организму бороться с инфекциями и укрепляют защитные силы.</p>
+          <p>Антибактериальные ферменты помогают организму бороться с инфекциями.</p>
         </div>
-        <div class="benefit-card fade-in">
-          <div class="benefit-card__icon">⚡</div>
+        <div class="benefit fade-in">
+          <span class="benefit__icon">⚡</span>
           <h3>Энергия</h3>
-          <p>Природные фруктоза и глюкоза усваиваются быстро, давая чистую энергию без резких скачков сахара.</p>
+          <p>Фруктоза и глюкоза дают чистую энергию без скачков сахара в крови.</p>
         </div>
-        <div class="benefit-card fade-in">
-          <div class="benefit-card__icon">🌿</div>
+        <div class="benefit fade-in">
+          <span class="benefit__icon">🌿</span>
           <h3>Антиоксиданты</h3>
-          <p>Тёмные сорта содержат флавоноиды и фенольные кислоты, замедляющие окислительные процессы в клетках.</p>
+          <p>Флавоноиды тёмных сортов замедляют окислительные процессы в клетках.</p>
         </div>
-        <div class="benefit-card fade-in">
-          <div class="benefit-card__icon">😴</div>
+        <div class="benefit fade-in">
+          <span class="benefit__icon">😴</span>
           <h3>Сон и нервы</h3>
-          <p>Ложка мёда перед сном стимулирует выработку серотонина, улучшает качество и глубину сна.</p>
+          <p>Ложка мёда перед сном улучшает качество и глубину сна.</p>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ ABOUT ═══ -->
+  <section class="about" id="about">
+    <div class="container about__inner">
+      <div class="about__visual fade-in" aria-hidden="true">
+        <div class="about__big">🏡</div>
+        <div class="about__chips">
+          <span class="chip">15+ лет опыта</span>
+          <span class="chip">80+ семей пчёл</span>
+          <span class="chip">6 сортов мёда</span>
+          <span class="chip">1200+ клиентов</span>
+        </div>
+      </div>
+      <div class="about__text fade-in">
+        <span class="section-tag">О пасеке</span>
+        <h2 class="section-title section-title--left">Пасека с душой</h2>
+        <p>Пасека НИКОЛЬСКИЙ ведёт историю с 2009 года. Мы расположены в экологически чистом районе, вдали от промышленных предприятий — там, где пчёлы собирают нектар с нетронутых лугов и лесов.</p>
+        <p>Мы не подогреваем мёд, не добавляем сахар и не используем антибиотики. Каждая партия проходит лабораторный анализ — паспорт качества высылаем вместе с заказом.</p>
+        <div class="about__features">
+          <div class="about-feature"><span>🔬</span><div><h4>Лабораторный контроль</h4><p>Каждая партия проверяется на качество</p></div></div>
+          <div class="about-feature"><span>📦</span><div><h4>Бережная упаковка</h4><p>Стекло защищено — доходит целым</p></div></div>
+        </div>
+        <a href="#order" class="btn btn--dark">Заказать мёд</a>
       </div>
     </div>
   </section>
@@ -341,89 +338,87 @@
       <div class="section-head">
         <span class="section-tag">Доставка</span>
         <h2 class="section-title">Доставляем по всей России</h2>
-        <p class="section-sub">Упаковываем мёд в ударопрочную тару — стеклянные банки не бьются. Срок доставки 1–7 дней.</p>
+        <p class="section-sub">Упаковываем в ударопрочную тару — стекло не бьётся. Срок 1–7 дней.</p>
       </div>
-
       <div class="delivery__grid">
 
         <div class="delivery-card fade-in" style="--accent:#1CAC4B">
-          <div class="delivery-card__header">
-            <div class="delivery-card__logo delivery-card__logo--cdek">СДЭК</div>
-            <span class="delivery-popular">Популярно</span>
+          <div class="delivery-card__head">
+            <span class="delivery-logo delivery-logo--cdek">СДЭК</span>
+            <span class="delivery-pop">Популярно</span>
           </div>
-          <div class="delivery-card__info">
-            <div class="di-row"><span>Срок</span><b>2–5 дней</b></div>
-            <div class="di-row"><span>Стоимость</span><b>от 250 ₽</b></div>
-            <div class="di-row"><span>Тип</span><b>До двери / ПВЗ</b></div>
+          <div class="delivery-card__rows">
+            <div class="dr"><span>Срок</span><b>2–5 дней</b></div>
+            <div class="dr"><span>Цена</span><b>от 250 ₽</b></div>
+            <div class="dr"><span>Тип</span><b>До двери / ПВЗ</b></div>
           </div>
-          <p class="delivery-card__note">Более 4 000 пунктов выдачи по России</p>
+          <p class="delivery-card__note">4 000+ пунктов выдачи по России</p>
         </div>
 
         <div class="delivery-card fade-in" style="--accent:#F5A623">
-          <div class="delivery-card__header">
-            <div class="delivery-card__logo delivery-card__logo--ya">Яндекс<br>Доставка</div>
+          <div class="delivery-card__head">
+            <span class="delivery-logo delivery-logo--ya">Яндекс Доставка</span>
           </div>
-          <div class="delivery-card__info">
-            <div class="di-row"><span>Срок</span><b>1–3 дня</b></div>
-            <div class="di-row"><span>Стоимость</span><b>от 290 ₽</b></div>
-            <div class="di-row"><span>Тип</span><b>Курьер до двери</b></div>
+          <div class="delivery-card__rows">
+            <div class="dr"><span>Срок</span><b>1–3 дня</b></div>
+            <div class="dr"><span>Цена</span><b>от 290 ₽</b></div>
+            <div class="dr"><span>Тип</span><b>Курьер до двери</b></div>
           </div>
-          <p class="delivery-card__note">Быстрая курьерская доставка по Москве и городам-миллионникам</p>
+          <p class="delivery-card__note">Быстро по Москве и городам-миллионникам</p>
         </div>
 
         <div class="delivery-card fade-in" style="--accent:#DC0032">
-          <div class="delivery-card__header">
-            <div class="delivery-card__logo delivery-card__logo--dpd">DPD</div>
+          <div class="delivery-card__head">
+            <span class="delivery-logo delivery-logo--dpd">DPD</span>
           </div>
-          <div class="delivery-card__info">
-            <div class="di-row"><span>Срок</span><b>2–6 дней</b></div>
-            <div class="di-row"><span>Стоимость</span><b>от 280 ₽</b></div>
-            <div class="di-row"><span>Тип</span><b>До двери / ПВЗ</b></div>
+          <div class="delivery-card__rows">
+            <div class="dr"><span>Срок</span><b>2–6 дней</b></div>
+            <div class="dr"><span>Цена</span><b>от 280 ₽</b></div>
+            <div class="dr"><span>Тип</span><b>До двери / ПВЗ</b></div>
           </div>
-          <p class="delivery-card__note">Надёжная доставка с отслеживанием посылки онлайн</p>
+          <p class="delivery-card__note">Надёжно, с отслеживанием онлайн</p>
         </div>
 
         <div class="delivery-card fade-in" style="--accent:#E2006A">
-          <div class="delivery-card__header">
-            <div class="delivery-card__logo delivery-card__logo--box">Boxberry</div>
+          <div class="delivery-card__head">
+            <span class="delivery-logo delivery-logo--box">Boxberry</span>
           </div>
-          <div class="delivery-card__info">
-            <div class="di-row"><span>Срок</span><b>3–7 дней</b></div>
-            <div class="di-row"><span>Стоимость</span><b>от 220 ₽</b></div>
-            <div class="di-row"><span>Тип</span><b>До двери / ПВЗ</b></div>
+          <div class="delivery-card__rows">
+            <div class="dr"><span>Срок</span><b>3–7 дней</b></div>
+            <div class="dr"><span>Цена</span><b>от 220 ₽</b></div>
+            <div class="dr"><span>Тип</span><b>До двери / ПВЗ</b></div>
           </div>
-          <p class="delivery-card__note">Более 9 000 отделений — самая широкая сеть в регионах</p>
+          <p class="delivery-card__note">9 000+ отделений — широкая сеть в регионах</p>
         </div>
 
         <div class="delivery-card fade-in" style="--accent:#005B99">
-          <div class="delivery-card__header">
-            <div class="delivery-card__logo delivery-card__logo--pochta">Почта<br>России</div>
+          <div class="delivery-card__head">
+            <span class="delivery-logo delivery-logo--pochta">Почта России</span>
           </div>
-          <div class="delivery-card__info">
-            <div class="di-row"><span>Срок</span><b>5–14 дней</b></div>
-            <div class="di-row"><span>Стоимость</span><b>от 180 ₽</b></div>
-            <div class="di-row"><span>Тип</span><b>До отделения</b></div>
+          <div class="delivery-card__rows">
+            <div class="dr"><span>Срок</span><b>5–14 дней</b></div>
+            <div class="dr"><span>Цена</span><b>от 180 ₽</b></div>
+            <div class="dr"><span>Тип</span><b>До отделения</b></div>
           </div>
-          <p class="delivery-card__note">Доставка в любой уголок России, включая отдалённые районы</p>
+          <p class="delivery-card__note">В любой уголок России</p>
         </div>
 
-        <div class="delivery-card delivery-card--pickup fade-in" style="--accent:#B8860B">
-          <div class="delivery-card__header">
-            <div class="delivery-card__logo delivery-card__logo--self">🏠</div>
+        <div class="delivery-card fade-in" style="--accent:#E8860A">
+          <div class="delivery-card__head">
+            <span class="delivery-logo delivery-logo--self">🏠 Самовывоз</span>
           </div>
-          <div class="delivery-card__info">
-            <div class="di-row"><span>Срок</span><b>В день заказа</b></div>
-            <div class="di-row"><span>Стоимость</span><b>Бесплатно</b></div>
-            <div class="di-row"><span>Тип</span><b>Самовывоз</b></div>
+          <div class="delivery-card__rows">
+            <div class="dr"><span>Срок</span><b>В день заказа</b></div>
+            <div class="dr"><span>Цена</span><b>Бесплатно</b></div>
+            <div class="dr"><span>Тип</span><b>С пасеки</b></div>
           </div>
-          <p class="delivery-card__note">Договоримся по телефону — адрес пасеки и время уточним лично</p>
+          <p class="delivery-card__note">Адрес и время уточним по телефону</p>
         </div>
 
       </div>
-
       <div class="delivery__note fade-in">
-        <div class="delivery-note-icon">ℹ️</div>
-        <p>Точную стоимость доставки менеджер рассчитает после получения заказа, исходя из веса и вашего адреса. Мы стараемся отправлять в течение 1–2 рабочих дней.</p>
+        <span>ℹ️</span>
+        <p>Точную стоимость доставки менеджер рассчитает после заказа — по весу и адресу. Отправляем в течение 1–2 рабочих дней.</p>
       </div>
     </div>
   </section>
@@ -436,63 +431,51 @@
         <h2 class="section-title">Удобные способы оплаты</h2>
         <p class="section-sub">Принимаем оплату через защищённый сервис ЮKassa — ваши данные в безопасности.</p>
       </div>
-
       <div class="payment__grid">
-        <div class="payment-method fade-in">
-          <div class="payment-method__icon pm--card">💳</div>
+        <div class="pay fade-in">
+          <span class="pay__icon">💳</span>
           <h4>Банковская карта</h4>
           <p>Visa, Mastercard, Мир</p>
-          <div class="card-logos">
-            <span class="card-logo card-logo--mir">МИР</span>
-            <span class="card-logo card-logo--visa">VISA</span>
-            <span class="card-logo card-logo--mc">MC</span>
+          <div class="pay__logos">
+            <span class="paylogo paylogo--mir">МИР</span>
+            <span class="paylogo paylogo--visa">VISA</span>
+            <span class="paylogo paylogo--mc">MC</span>
           </div>
         </div>
-        <div class="payment-method fade-in">
-          <div class="payment-method__icon pm--sbp">⚡</div>
+        <div class="pay fade-in">
+          <span class="pay__icon">⚡</span>
           <h4>СБП</h4>
-          <p>Система быстрых платежей — мгновенно и бесплатно</p>
-          <div class="card-logos">
-            <span class="card-logo card-logo--sbp">СБП</span>
-          </div>
+          <p>Система быстрых платежей — мгновенно</p>
+          <div class="pay__logos"><span class="paylogo paylogo--sbp">СБП</span></div>
         </div>
-        <div class="payment-method fade-in">
-          <div class="payment-method__icon pm--sber">🟢</div>
+        <div class="pay fade-in">
+          <span class="pay__icon">🟢</span>
           <h4>SberPay</h4>
-          <p>Оплата через приложение Сбербанк в один клик</p>
-          <div class="card-logos">
-            <span class="card-logo card-logo--sber">SberPay</span>
-          </div>
+          <p>Оплата через Сбербанк в один клик</p>
+          <div class="pay__logos"><span class="paylogo paylogo--sber">SberPay</span></div>
         </div>
-        <div class="payment-method fade-in">
-          <div class="payment-method__icon pm--ymoney">💛</div>
+        <div class="pay fade-in">
+          <span class="pay__icon">💛</span>
           <h4>ЮMoney</h4>
-          <p>Электронный кошелёк — быстро и надёжно</p>
-          <div class="card-logos">
-            <span class="card-logo card-logo--ym">ЮMoney</span>
-          </div>
+          <p>Электронный кошелёк</p>
+          <div class="pay__logos"><span class="paylogo paylogo--ym">ЮMoney</span></div>
         </div>
-        <div class="payment-method fade-in">
-          <div class="payment-method__icon pm--cash">💵</div>
+        <div class="pay fade-in">
+          <span class="pay__icon">💵</span>
           <h4>Наличными</h4>
           <p>При самовывозе или наложенным платежом</p>
         </div>
-        <div class="payment-method fade-in">
-          <div class="payment-method__icon pm--transfer">📱</div>
+        <div class="pay fade-in">
+          <span class="pay__icon">📱</span>
           <h4>Перевод на карту</h4>
-          <p>СБП по номеру телефона +7 (906) 816-11-72</p>
+          <p>СБП по номеру +7 (906) 816-11-72</p>
         </div>
       </div>
-
       <div class="payment__security fade-in">
-        <div class="security-item">🔒 SSL-шифрование данных</div>
-        <div class="security-item">🛡 Платёжный шлюз ЮKassa</div>
-        <div class="security-item">✅ Чек на email после оплаты</div>
-        <div class="security-item">↩️ Возврат при несоответствии</div>
-      </div>
-
-      <div class="payment__yookassa-note fade-in">
-        <p>Онлайн-оплата обрабатывается через <strong>ЮKassa</strong>. После оформления заказа мы пришлём ссылку на оплату в WhatsApp или Telegram.</p>
+        <span>🔒 SSL-шифрование</span>
+        <span>🛡 Шлюз ЮKassa</span>
+        <span>✅ Чек на email</span>
+        <span>↩️ Возврат при несоответствии</span>
       </div>
     </div>
   </section>
@@ -505,128 +488,60 @@
         <h2 class="section-title">Что говорят клиенты</h2>
       </div>
       <div class="reviews__grid">
-        <div class="review-card fade-in">
-          <div class="review-stars">★★★★★</div>
-          <p>«Заказываю мёд у НИКОЛЬСКИХ уже третий год. Гречишный — лучший из всех что пробовала. Упаковка всегда целая, доставка быстрая через СДЭК.»</p>
-          <div class="review-author">
-            <div class="review-avatar">М</div>
-            <div>
-              <strong>Мария К.</strong>
-              <span>Москва</span>
-            </div>
-          </div>
+        <div class="review fade-in">
+          <div class="review__stars">★★★★★</div>
+          <p>«Заказываю мёд у НИКОЛЬСКИХ третий год. Гречишный — лучший из всех. Упаковка целая, доставка быстрая через СДЭК.»</p>
+          <div class="review__author"><span class="ava">М</span><div><strong>Мария К.</strong><em>Москва</em></div></div>
         </div>
-        <div class="review-card fade-in">
-          <div class="review-stars">★★★★★</div>
-          <p>«Брал оптом 15 кг на семью — по составу совсем другой, живой вкус. Дети едят с удовольствием. Спасибо за качество и честность в ценах.»</p>
-          <div class="review-author">
-            <div class="review-avatar">А</div>
-            <div>
-              <strong>Андрей В.</strong>
-              <span>Екатеринбург</span>
-            </div>
-          </div>
+        <div class="review fade-in">
+          <div class="review__stars">★★★★★</div>
+          <p>«Брал оптом 15 кг — совсем другой, живой вкус. Дети едят с удовольствием. Спасибо за качество и честные цены.»</p>
+          <div class="review__author"><span class="ava">А</span><div><strong>Андрей В.</strong><em>Екатеринбург</em></div></div>
         </div>
-        <div class="review-card fade-in">
-          <div class="review-stars">★★★★★</div>
-          <p>«Акациевый мёд просто невероятный — такой нежный, я не думала что мёд может быть таким вкусным. Заказываю уже второй раз, приду и в третий!»</p>
-          <div class="review-author">
-            <div class="review-avatar">Е</div>
-            <div>
-              <strong>Елена Ф.</strong>
-              <span>Санкт-Петербург</span>
-            </div>
-          </div>
+        <div class="review fade-in">
+          <div class="review__stars">★★★★★</div>
+          <p>«Акациевый просто невероятный — нежный, не думала что мёд бывает таким вкусным. Заказываю уже второй раз!»</p>
+          <div class="review__author"><span class="ava">Е</span><div><strong>Елена Ф.</strong><em>Санкт-Петербург</em></div></div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ═══ ORDER FORM ═══ -->
+  <!-- ═══ ORDER ═══ -->
   <section class="order" id="order">
     <div class="container order__inner">
 
       <div class="order__info fade-in">
         <span class="section-tag">Заказ</span>
-        <h2 class="section-title">Оформить заказ</h2>
-        <p>Заполните форму — мы свяжемся в течение часа, уточним детали и выставим счёт удобным вам способом.</p>
+        <h2 class="section-title section-title--left">Оформить заказ</h2>
+        <p>Заполните форму — свяжемся в течение часа, уточним детали и выставим счёт удобным способом.</p>
         <div class="order__contacts">
-          <a href="tel:+79068161172" class="contact-link">
-            <span class="cl-icon">📞</span>
-            <span>+7 (906) 816-11-72</span>
-          </a>
-          <a href="https://wa.me/79068161172" class="contact-link" target="_blank" rel="noopener">
-            <span class="cl-icon">💬</span>
-            <span>WhatsApp</span>
-          </a>
-          <a href="https://t.me/+79068161172" class="contact-link" target="_blank" rel="noopener">
-            <span class="cl-icon">✈️</span>
-            <span>Telegram</span>
-          </a>
-          <a href="https://vk.com/write-79068161172" class="contact-link" target="_blank" rel="noopener">
-            <span class="cl-icon">🔵</span>
-            <span>ВКонтакте</span>
-          </a>
+          <a href="tel:+79068161172" class="contact-link"><span>📞</span>+7 (906) 816-11-72</a>
+          <a href="https://wa.me/79068161172" class="contact-link" target="_blank" rel="noopener"><span>💬</span>WhatsApp</a>
+          <a href="https://t.me/+79068161172" class="contact-link" target="_blank" rel="noopener"><span>✈️</span>Telegram</a>
+          <a href="https://vk.com/write-79068161172" class="contact-link" target="_blank" rel="noopener"><span>🔵</span>ВКонтакте</a>
         </div>
         <div class="order__guarantee">
-          <div class="og-item">🔄 Возврат, если не понравится</div>
-          <div class="og-item">📋 Паспорт качества в каждом заказе</div>
-          <div class="og-item">📦 Бережная упаковка</div>
+          <div class="og">🔄 Возврат, если не понравится</div>
+          <div class="og">📋 Паспорт качества в каждом заказе</div>
+          <div class="og">📦 Бережная упаковка</div>
         </div>
       </div>
 
       <form class="order__form" id="orderForm" novalidate>
 
-        <!-- Мёд -->
-        <fieldset class="form-fieldset">
+        <fieldset class="ff">
           <legend>Выберите мёд</legend>
           <div class="honey-select">
-            <label class="honey-option">
-              <input type="checkbox" name="honey" value="Цветочный" data-price="650">
-              <span class="honey-option__box">
-                <span class="ho-name">🌸 Цветочный</span>
-                <span class="ho-price">650 ₽/кг</span>
-              </span>
-            </label>
-            <label class="honey-option">
-              <input type="checkbox" name="honey" value="Разнотравье" data-price="620">
-              <span class="honey-option__box">
-                <span class="ho-name">🌾 Разнотравье</span>
-                <span class="ho-price">620 ₽/кг</span>
-              </span>
-            </label>
-            <label class="honey-option">
-              <input type="checkbox" name="honey" value="Гречишный" data-price="780">
-              <span class="honey-option__box">
-                <span class="ho-name">🌰 Гречишный</span>
-                <span class="ho-price">780 ₽/кг</span>
-              </span>
-            </label>
-            <label class="honey-option">
-              <input type="checkbox" name="honey" value="Липовый" data-price="850">
-              <span class="honey-option__box">
-                <span class="ho-name">🌳 Липовый</span>
-                <span class="ho-price">850 ₽/кг</span>
-              </span>
-            </label>
-            <label class="honey-option">
-              <input type="checkbox" name="honey" value="Подсолнечный" data-price="560">
-              <span class="honey-option__box">
-                <span class="ho-name">🌻 Подсолнечный</span>
-                <span class="ho-price">560 ₽/кг</span>
-              </span>
-            </label>
-            <label class="honey-option">
-              <input type="checkbox" name="honey" value="Акациевый" data-price="900">
-              <span class="honey-option__box">
-                <span class="ho-name">🤍 Акациевый</span>
-                <span class="ho-price">900 ₽/кг</span>
-              </span>
-            </label>
+            <label class="honey-option"><input type="checkbox" name="honey" value="Цветочный" data-price="650"><span class="ho-box"><span class="ho-name">🌸 Цветочный</span><span class="ho-price">650 ₽/кг</span></span></label>
+            <label class="honey-option"><input type="checkbox" name="honey" value="Разнотравье" data-price="620"><span class="ho-box"><span class="ho-name">🌾 Разнотравье</span><span class="ho-price">620 ₽/кг</span></span></label>
+            <label class="honey-option"><input type="checkbox" name="honey" value="Гречишный" data-price="780"><span class="ho-box"><span class="ho-name">🌰 Гречишный</span><span class="ho-price">780 ₽/кг</span></span></label>
+            <label class="honey-option"><input type="checkbox" name="honey" value="Липовый" data-price="850"><span class="ho-box"><span class="ho-name">🌳 Липовый</span><span class="ho-price">850 ₽/кг</span></span></label>
+            <label class="honey-option"><input type="checkbox" name="honey" value="Подсолнечный" data-price="560"><span class="ho-box"><span class="ho-name">🌻 Подсолнечный</span><span class="ho-price">560 ₽/кг</span></span></label>
+            <label class="honey-option"><input type="checkbox" name="honey" value="Акациевый" data-price="900"><span class="ho-box"><span class="ho-name">🤍 Акациевый</span><span class="ho-price">900 ₽/кг</span></span></label>
           </div>
         </fieldset>
 
-        <!-- Количество -->
         <div class="form-row">
           <div class="form-group">
             <label for="weight">Общий объём</label>
@@ -649,7 +564,6 @@
           </div>
         </div>
 
-        <!-- Личные данные -->
         <div class="form-row">
           <div class="form-group">
             <label for="name">Ваше имя *</label>
@@ -665,52 +579,15 @@
           <input type="email" id="email" name="email" placeholder="example@mail.ru" />
         </div>
 
-        <!-- Доставка -->
-        <fieldset class="form-fieldset">
+        <fieldset class="ff">
           <legend>Способ доставки</legend>
           <div class="delivery-options">
-            <label class="delivery-option">
-              <input type="radio" name="delivery" value="cdek" required>
-              <span class="do-box">
-                <span class="do-logo do-logo--cdek">СДЭК</span>
-                <span class="do-desc">2–5 дней, от 250 ₽</span>
-              </span>
-            </label>
-            <label class="delivery-option">
-              <input type="radio" name="delivery" value="yandex">
-              <span class="do-box">
-                <span class="do-logo do-logo--ya">Яндекс</span>
-                <span class="do-desc">1–3 дня, от 290 ₽</span>
-              </span>
-            </label>
-            <label class="delivery-option">
-              <input type="radio" name="delivery" value="dpd">
-              <span class="do-box">
-                <span class="do-logo do-logo--dpd">DPD</span>
-                <span class="do-desc">2–6 дней, от 280 ₽</span>
-              </span>
-            </label>
-            <label class="delivery-option">
-              <input type="radio" name="delivery" value="boxberry">
-              <span class="do-box">
-                <span class="do-logo do-logo--box">Boxberry</span>
-                <span class="do-desc">3–7 дней, от 220 ₽</span>
-              </span>
-            </label>
-            <label class="delivery-option">
-              <input type="radio" name="delivery" value="pochta">
-              <span class="do-box">
-                <span class="do-logo do-logo--pochta">Почта РФ</span>
-                <span class="do-desc">5–14 дней, от 180 ₽</span>
-              </span>
-            </label>
-            <label class="delivery-option">
-              <input type="radio" name="delivery" value="pickup">
-              <span class="do-box">
-                <span class="do-logo do-logo--pickup">🏠 Самовывоз</span>
-                <span class="do-desc">Бесплатно</span>
-              </span>
-            </label>
+            <label class="delivery-option"><input type="radio" name="delivery" value="cdek" required><span class="do-box"><span class="do-logo do-logo--cdek">СДЭК</span><span class="do-desc">2–5 дней, от 250 ₽</span></span></label>
+            <label class="delivery-option"><input type="radio" name="delivery" value="yandex"><span class="do-box"><span class="do-logo do-logo--ya">Яндекс</span><span class="do-desc">1–3 дня, от 290 ₽</span></span></label>
+            <label class="delivery-option"><input type="radio" name="delivery" value="dpd"><span class="do-box"><span class="do-logo do-logo--dpd">DPD</span><span class="do-desc">2–6 дней, от 280 ₽</span></span></label>
+            <label class="delivery-option"><input type="radio" name="delivery" value="boxberry"><span class="do-box"><span class="do-logo do-logo--box">Boxberry</span><span class="do-desc">3–7 дней, от 220 ₽</span></span></label>
+            <label class="delivery-option"><input type="radio" name="delivery" value="pochta"><span class="do-box"><span class="do-logo do-logo--pochta">Почта РФ</span><span class="do-desc">5–14 дней, от 180 ₽</span></span></label>
+            <label class="delivery-option"><input type="radio" name="delivery" value="pickup"><span class="do-box"><span class="do-logo do-logo--pickup">🏠 Самовывоз</span><span class="do-desc">Бесплатно</span></span></label>
           </div>
           <div class="form-group" id="addressGroup" style="display:none;margin-top:12px">
             <label for="address">Адрес доставки / город и индекс</label>
@@ -718,54 +595,27 @@
           </div>
         </fieldset>
 
-        <!-- Оплата -->
-        <fieldset class="form-fieldset">
+        <fieldset class="ff">
           <legend>Способ оплаты</legend>
           <div class="payment-options-form">
-            <label class="payment-option-form">
-              <input type="radio" name="payment" value="online" required>
-              <span class="pof-box">
-                <span class="pof-icon">💳</span>
-                <span>Онлайн — карта, СБП, SberPay</span>
-              </span>
-            </label>
-            <label class="payment-option-form">
-              <input type="radio" name="payment" value="sbp">
-              <span class="pof-box">
-                <span class="pof-icon">⚡</span>
-                <span>Перевод по СБП (+7 906 816-11-72)</span>
-              </span>
-            </label>
-            <label class="payment-option-form">
-              <input type="radio" name="payment" value="cod">
-              <span class="pof-box">
-                <span class="pof-icon">💵</span>
-                <span>Наличными при получении / самовывозе</span>
-              </span>
-            </label>
+            <label class="payment-option-form"><input type="radio" name="payment" value="online" required><span class="pof-box"><span class="pof-icon">💳</span>Онлайн — карта, СБП, SberPay</span></label>
+            <label class="payment-option-form"><input type="radio" name="payment" value="sbp"><span class="pof-box"><span class="pof-icon">⚡</span>Перевод по СБП (+7 906 816-11-72)</span></label>
+            <label class="payment-option-form"><input type="radio" name="payment" value="cod"><span class="pof-box"><span class="pof-icon">💵</span>Наличными при получении / самовывозе</span></label>
           </div>
         </fieldset>
 
-        <!-- Комментарий -->
         <div class="form-group">
           <label for="comment">Комментарий к заказу</label>
-          <textarea id="comment" name="comment" rows="3" placeholder="Пожелания по упаковке, времени доставки, конкретные сорта и объёмы…"></textarea>
+          <textarea id="comment" name="comment" rows="3" placeholder="Пожелания по упаковке, времени доставки, сортам и объёмам…"></textarea>
         </div>
 
-        <!-- Согласие -->
         <label class="consent-label" id="consentLabel">
           <input type="checkbox" id="consent" name="consent" required />
-          <span>
-            Я даю согласие на <a href="privacy.html" target="_blank">обработку персональных данных</a>
-            в соответствии с Федеральным законом №152-ФЗ и <a href="privacy.html" target="_blank">Политикой конфиденциальности</a>
-          </span>
+          <span>Я даю согласие на <a href="privacy.html" target="_blank">обработку персональных данных</a> в соответствии с ФЗ №152-ФЗ и <a href="privacy.html" target="_blank">Политикой конфиденциальности</a></span>
         </label>
 
-        <button type="submit" class="btn btn--gold btn--full btn--lg" id="submitBtn">
-          Отправить заявку
-        </button>
-        <p class="form__legal">Нажимая кнопку, вы соглашаетесь с условиями <a href="privacy.html">Политики конфиденциальности</a> и <a href="offer.html">Публичной офертой</a></p>
-
+        <button type="submit" class="btn btn--dark btn--full btn--lg" id="submitBtn">Отправить заявку</button>
+        <p class="form__legal">Нажимая кнопку, вы соглашаетесь с <a href="privacy.html">Политикой конфиденциальности</a> и <a href="offer.html">Публичной офертой</a></p>
       </form>
     </div>
   </section>
@@ -775,26 +625,18 @@
     <div class="container">
       <div class="footer__top">
         <div class="footer__col footer__col--brand">
-          <a href="/" class="footer-logo">
-            <img src="images/logo.png" alt="Пасека НИКОЛЬСКИЙ" class="footer-logo__img" />
-          </a>
+          <a href="/" class="footer-logo"><img src="images/logo.png" alt="Пасека НИКОЛЬСКИЙ" class="footer-logo__img" /></a>
           <p>Семейная пасека НИКОЛЬСКИЙ. Натуральный мёд с доставкой по всей России.</p>
           <div class="footer__socials">
-            <a href="https://wa.me/79068161172" class="social-btn social-btn--light" title="WhatsApp" target="_blank" rel="noopener">
-              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347M12 0C5.373 0 0 5.373 0 12c0 2.122.554 4.112 1.522 5.837L.057 23.882l6.198-1.437A11.95 11.95 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.9a9.9 9.9 0 01-5.032-1.372l-.36-.214-3.742.981 1-3.635-.235-.374A9.87 9.87 0 012.1 12c0-5.46 4.44-9.9 9.9-9.9 5.46 0 9.9 4.44 9.9 9.9 0 5.46-4.44 9.9-9.9 9.9z"/></svg>
-            </a>
-            <a href="https://t.me/+79068161172" class="social-btn social-btn--light" title="Telegram" target="_blank" rel="noopener">
-              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
-            </a>
-            <a href="https://vk.com/write-79068161172" class="social-btn social-btn--light" title="ВКонтакте" target="_blank" rel="noopener">
-              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M15.684 0H8.316C1.592 0 0 1.592 0 8.316v7.368C0 22.408 1.592 24 8.316 24h7.368C22.408 24 24 22.408 24 15.684V8.316C24 1.592 22.408 0 15.684 0zm3.692 17.123h-1.744c-.66 0-.862-.523-2.049-1.727-1.033-1-1.49-1.135-1.744-1.135-.356 0-.458.102-.458.593v1.575c0 .424-.135.678-1.253.678-1.846 0-3.896-1.118-5.335-3.202C4.624 10.857 4.03 8.57 4.03 8.096c0-.254.102-.491.593-.491h1.744c.44 0 .61.203.78.677.864 2.49 2.303 4.675 2.896 4.675.22 0 .322-.102.322-.66V9.721c-.068-1.186-.695-1.287-.695-1.71 0-.204.17-.407.44-.407h2.744c.373 0 .508.203.508.643v3.473c0 .372.17.508.271.508.22 0 .407-.136.813-.542 1.254-1.406 2.151-3.574 2.151-3.574.119-.254.322-.491.762-.491h1.744c.525 0 .644.27.525.643-.22 1.017-2.354 4.031-2.354 4.031-.186.305-.254.44 0 .78.186.254.796.779 1.203 1.253.745.847 1.32 1.558 1.473 2.049.17.491-.085.745-.576.745z"/></svg>
-            </a>
+            <a href="https://wa.me/79068161172" class="social-btn social-btn--light" title="WhatsApp" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347M12 0C5.373 0 0 5.373 0 12c0 2.122.554 4.112 1.522 5.837L.057 23.882l6.198-1.437A11.95 11.95 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.9a9.9 9.9 0 01-5.032-1.372l-.36-.214-3.742.981 1-3.635-.235-.374A9.87 9.87 0 012.1 12c0-5.46 4.44-9.9 9.9-9.9 5.46 0 9.9 4.44 9.9 9.9 0 5.46-4.44 9.9-9.9 9.9z"/></svg></a>
+            <a href="https://t.me/+79068161172" class="social-btn social-btn--light" title="Telegram" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg></a>
+            <a href="https://vk.com/write-79068161172" class="social-btn social-btn--light" title="ВКонтакте" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M15.684 0H8.316C1.592 0 0 1.592 0 8.316v7.368C0 22.408 1.592 24 8.316 24h7.368C22.408 24 24 22.408 24 15.684V8.316C24 1.592 22.408 0 15.684 0zm3.692 17.123h-1.744c-.66 0-.862-.523-2.049-1.727-1.033-1-1.49-1.135-1.744-1.135-.356 0-.458.102-.458.593v1.575c0 .424-.135.678-1.253.678-1.846 0-3.896-1.118-5.335-3.202C4.624 10.857 4.03 8.57 4.03 8.096c0-.254.102-.491.593-.491h1.744c.44 0 .61.203.78.677.864 2.49 2.303 4.675 2.896 4.675.22 0 .322-.102.322-.66V9.721c-.068-1.186-.695-1.287-.695-1.71 0-.204.17-.407.44-.407h2.744c.373 0 .508.203.508.643v3.473c0 .372.17.508.271.508.22 0 .407-.136.813-.542 1.254-1.406 2.151-3.574 2.151-3.574.119-.254.322-.491.762-.491h1.744c.525 0 .644.27.525.643-.22 1.017-2.354 4.031-2.354 4.031-.186.305-.254.44 0 .78.186.254.796.779 1.203 1.253.745.847 1.32 1.558 1.473 2.049.17.491-.085.745-.576.745z"/></svg></a>
           </div>
         </div>
         <div class="footer__col">
           <h4>Каталог</h4>
           <ul>
-            <li><a href="#products">Цветочный мёд</a></li>
+            <li><a href="#products">Цветочный</a></li>
             <li><a href="#products">Разнотравье</a></li>
             <li><a href="#products">Гречишный</a></li>
             <li><a href="#products">Липовый</a></li>
@@ -821,19 +663,17 @@
           </ul>
         </div>
       </div>
-
       <div class="footer__bottom">
         <p>© 2026 Пасека НИКОЛЬСКИЙ. Все права защищены.</p>
         <div class="footer__legal">
           <a href="privacy.html">Политика конфиденциальности</a>
-          <a href="privacy.html#personal-data">Обработка персональных данных</a>
           <a href="offer.html">Публичная оферта</a>
         </div>
       </div>
     </div>
   </footer>
 
-  <!-- ═══ SUCCESS TOAST ═══ -->
+  <!-- ═══ TOAST ═══ -->
   <div class="toast" id="toast">
     <span class="toast__icon">🍯</span>
     <span>Заявка принята! Свяжемся в течение часа.</span>
