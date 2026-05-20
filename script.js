@@ -75,6 +75,50 @@ document.addEventListener('DOMContentLoaded', () => {
   }, { threshold: 0.1 });
   fadeEls.forEach(el => fadeObserver.observe(el));
 
+  /* ─── 3D: ПАРАЛЛАКС HERO-СЦЕНЫ ЗА КУРСОРОМ ─── */
+  const heroScene = document.getElementById('heroScene');
+  const hero = document.querySelector('.hero');
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (heroScene && hero && !reduceMotion && window.matchMedia('(pointer:fine)').matches) {
+    let raf = null;
+    hero.addEventListener('mousemove', e => {
+      const r = hero.getBoundingClientRect();
+      const x = (e.clientX - r.left) / r.width - 0.5;
+      const y = (e.clientY - r.top) / r.height - 0.5;
+      if (raf) cancelAnimationFrame(raf);
+      raf = requestAnimationFrame(() => {
+        heroScene.style.transform = `rotateY(${x * 18}deg) rotateX(${-y * 18}deg)`;
+      });
+    });
+    hero.addEventListener('mouseleave', () => {
+      heroScene.style.transform = 'rotateY(0) rotateX(0)';
+    });
+  }
+
+  /* ─── 3D: НАКЛОН КАРТОЧЕК ЗА КУРСОРОМ ─── */
+  if (!reduceMotion && window.matchMedia('(pointer:fine)').matches) {
+    const tiltCards = document.querySelectorAll(
+      '.product-card, .ingredient, .delivery-card, .pay, .review, .benefit, .about__visual'
+    );
+    tiltCards.forEach(card => {
+      card.classList.add('tilt');
+      let frame = null;
+      card.addEventListener('mousemove', e => {
+        const r = card.getBoundingClientRect();
+        const x = (e.clientX - r.left) / r.width - 0.5;
+        const y = (e.clientY - r.top) / r.height - 0.5;
+        if (frame) cancelAnimationFrame(frame);
+        frame = requestAnimationFrame(() => {
+          card.style.transform =
+            `perspective(800px) rotateX(${-y * 7}deg) rotateY(${x * 7}deg) translateY(-8px) scale(1.02)`;
+        });
+      });
+      card.addEventListener('mouseleave', () => {
+        card.style.transform = '';
+      });
+    });
+  }
+
   /* ─── ПОКАЗ ПОЛЯ АДРЕСА ─── */
   const deliveryRadios = document.querySelectorAll('input[name="delivery"]');
   const addressGroup = document.getElementById('addressGroup');

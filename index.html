@@ -60,6 +60,10 @@
 
   <!-- ═══ HERO ═══ -->
   <section class="hero" id="home">
+    <div class="hero__bg" aria-hidden="true">
+      <span class="blob blob--1"></span>
+      <span class="blob blob--2"></span>
+    </div>
     <div class="container">
       <div class="hero__grid">
         <div class="hero__content">
@@ -72,22 +76,25 @@
           </div>
         </div>
         <div class="hero__visual" aria-hidden="true">
-          <div class="hero__disc">
-            <div class="hero__jar">🍯</div>
-          </div>
-          <div class="hero__float hero__float--1">🐝</div>
-          <div class="hero__float hero__float--2">🌸</div>
-          <div class="hero__float hero__float--3">🌿</div>
-          <div class="hero__stamp">
-            <svg viewBox="0 0 120 120">
-              <defs>
-                <path id="stampPath" d="M 60,60 m -42,0 a 42,42 0 1,1 84,0 a 42,42 0 1,1 -84,0" />
-              </defs>
-              <text class="hero__stamp-text">
-                <textPath href="#stampPath">100% НАТУРАЛЬНЫЙ • БЕЗ САХАРА • С ПАСЕКИ • </textPath>
-              </text>
-            </svg>
-            <span class="hero__stamp-center">✓</span>
+          <div class="scene" id="heroScene">
+            <div class="honey-orb">
+              <div class="honey-orb__sphere"></div>
+              <div class="honey-orb__drip"></div>
+            </div>
+            <span class="orbit orbit--1">🐝</span>
+            <span class="orbit orbit--2">🌸</span>
+            <span class="orbit orbit--3">🍯</span>
+            <div class="scene__stamp">
+              <svg viewBox="0 0 120 120">
+                <defs>
+                  <path id="stampPath" d="M 60,60 m -42,0 a 42,42 0 1,1 84,0 a 42,42 0 1,1 -84,0" />
+                </defs>
+                <text class="scene__stamp-text">
+                  <textPath href="#stampPath">100% НАТУРАЛЬНЫЙ • БЕЗ САХАРА • С ПАСЕКИ • </textPath>
+                </text>
+              </svg>
+              <span class="scene__stamp-center">✓</span>
+            </div>
           </div>
         </div>
       </div>
