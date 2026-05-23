@@ -330,6 +330,7 @@ h1, h2, h3, h4 { font-family: 'Inter', sans-serif; line-height: 1.18; font-weigh
 .form-group label { font-size: 13px; font-weight: 600; color: var(--ink); }
 .optional { font-weight: 400; color: var(--muted); }
 .form-group input, .form-group select, .form-group textarea {
+  width: 100%; min-width: 0; max-width: 100%;
   padding: 12px 14px; border: 1.5px solid var(--line); border-radius: var(--r-sm); font-size: 14px; color: var(--ink);
   background: var(--white); transition: border-color var(--t); outline: none; }
 .form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: var(--gold); }
@@ -449,10 +450,8 @@ h1, h2, h3, h4 { font-family: 'Inter', sans-serif; line-height: 1.18; font-weigh
   .rent-cta { grid-template-columns: 1fr; gap: 32px; padding: 36px; }
 }
 @media (max-width: 860px) {
-  .hero__grid { grid-template-columns: 1fr; text-align: center; gap: 40px; }
-  .hero__content { display: flex; flex-direction: column; align-items: center; }
-  .hero__visual { order: -1; }
-  .hero__photo { max-width: 360px; }
+  .hero { min-height: 84vh; padding: 100px 0 40px; }
+  .hero__content { display: flex; flex-direction: column; align-items: center; text-align: center; margin: 0 auto; max-width: 540px; }
   .about__inner { grid-template-columns: 1fr; }
   .about__visual { order: -1; }
   .nav { display: none; position: fixed; top: 78px; left: 0; right: 0; background: var(--white); flex-direction: column; padding: 20px; gap: 4px; box-shadow: var(--shadow-lg); border-bottom: 1px solid var(--line); }
@@ -466,6 +465,16 @@ h1, h2, h3, h4 { font-family: 'Inter', sans-serif; line-height: 1.18; font-weigh
   .products__grid, .delivery__grid, .payment__grid, .benefits__grid { grid-template-columns: 1fr; }
   .footer__top { grid-template-columns: 1fr; }
   .footer__bottom { flex-direction: column; text-align: center; }
+  .hero { min-height: 80vh; padding: 90px 0 36px; }
+  .hero__title { font-size: 34px; line-height: 1.12; }
+  .hero__sub { font-size: 16px; }
+  .hero__eyebrow { font-size: 12px; }
+  .section-title { font-size: 27px; }
+  .recipe__title { font-size: 27px; }
+  .rent-cta { padding: 26px 20px; }
+  .rent-form { padding: 22px 18px; }
+  .tariff { padding: 30px 24px; }
+  .facts { padding: 22px 20px; }
   .facts__row { grid-template-columns: 1fr 1fr; gap: 10px; }
   .fact:nth-child(2) { border-right: none; }
   .fact { border-bottom: 1px solid var(--line); padding-bottom: 14px; }
