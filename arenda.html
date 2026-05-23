@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Аренда улья на пасеке НИКОЛЬСКИЙ — свой мёд из собственного улья. Именные банки, онлайн-трансляция, экскурсия. Доставка по России." />
+  <title>Аренда улья — Пасека НИКОЛЬСКИЙ</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- COOKIE BANNER -->
+  <div class="cookie-bar" id="cookieBar">
+    <div class="cookie-bar__inner">
+      <span>Мы используем файлы cookie. Продолжая использование сайта, вы соглашаетесь с <a href="privacy.html">Политикой конфиденциальности</a>.</span>
+      <button class="btn btn--dark btn--sm" id="cookieAccept">Принять</button>
+    </div>
+  </div>
+
+  <!-- HEADER -->
+  <header class="header" id="header">
+    <div class="container header__inner">
+      <a href="index.html" class="logo">
+        <img src="images/logo.png" alt="Пасека НИКОЛЬСКИЙ" class="logo__img" />
+      </a>
+      <nav class="nav" id="nav">
+        <a href="index.html#products">Мёд</a>
+        <a href="arenda.html" class="active">Аренда улья</a>
+        <a href="#how">Как работает</a>
+        <a href="#tariffs">Тарифы</a>
+        <a href="#faq">Вопросы</a>
+      </nav>
+      <div class="header__actions">
+        <a href="tel:+79068161172" class="header__phone">
+          <span class="header__phone-label">Звоните</span>
+          +7 (906) 816-11-72
+        </a>
+        <a href="#rent" class="btn btn--gold btn--sm">Оставить заявку</a>
+        <button class="burger" id="burger" aria-label="Открыть меню"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero" id="top">
+    <video class="hero__video" autoplay muted loop playsinline preload="auto"
+           poster="https://images.pexels.com/photos/17543926/pexels-photo-17543926.jpeg?auto=compress&cs=tinysrgb&w=1600">
+      <source src="https://videos.pexels.com/video-files/18358802/18358802-hd_1920_1080_30fps.mp4" type="video/mp4">
+    </video>
+    <div class="hero__overlay" aria-hidden="true"></div>
+    <div class="container">
+      <div class="hero__content">
+        <span class="hero__eyebrow">🐝 Новинка пасеки НИКОЛЬСКИЙ</span>
+        <h1 class="hero__title">Свой мёд из<br><span>собственного улья</span></h1>
+        <p class="hero__sub">Арендуйте улей на нашей пасеке — мы ухаживаем за пчёлами, а весь мёд вашего улья осенью приезжает к вам в именных банках.</p>
+        <div class="hero__cta">
+          <a href="#tariffs" class="btn btn--gold btn--lg">Выбрать улей</a>
+          <a href="#how" class="btn btn--glass btn--lg">Как это работает</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- КАК ЭТО РАБОТАЕТ -->
+  <section class="recipe" id="how" style="background:var(--bg)">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-tag">Как это работает</span>
+        <h2 class="section-title">От улья до вашего стола</h2>
+        <p class="section-sub">Вы наблюдаете весь сезон, а мы делаем всю работу за вас</p>
+      </div>
+      <div class="steps">
+        <div class="step fade-in">
+          <div class="step__num">1</div>
+          <span class="step__month">Апрель</span>
+          <h3>Выбираете улей</h3>
+          <p>Бронируете целый улей или долю. Закрепляем его за вами и присваиваем номер.</p>
+        </div>
+        <div class="step fade-in">
+          <div class="step__num">2</div>
+          <span class="step__month">Май — Август</span>
+          <h3>Пчёлы работают</h3>
+          <p>Ухаживаем за вашим ульем, а вы следите за пчёлами онлайн и получаете фотоотчёты.</p>
+        </div>
+        <div class="step fade-in">
+          <div class="step__num">3</div>
+          <span class="step__month">Сентябрь</span>
+          <h3>Качаем ваш мёд</h3>
+          <p>Откачиваем мёд именно вашего улья — без смешивания с другими.</p>
+        </div>
+        <div class="step fade-in">
+          <div class="step__num">4</div>
+          <span class="step__month">Октябрь</span>
+          <h3>Доставляем</h3>
+          <p>Фасуем в именные банки с вашим именем и доставляем по всей России.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ТАРИФЫ -->
+  <section class="products" id="tariffs">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-tag">Тарифы</span>
+        <h2 class="section-title">Выберите свой улей</h2>
+        <p class="section-sub">Целый улей или доля — мёда хватит на весь год</p>
+      </div>
+      <div class="tariffs">
+        <div class="tariff fade-in">
+          <div class="tariff__name">Проба · ⅛ улья</div>
+          <div class="tariff__price">10 500 ₽ <small>/ сезон</small></div>
+          <div class="tariff__yield">≈ 7 кг мёда</div>
+          <ul class="tariff__list">
+            <li>Мёд вашей доли улья</li>
+            <li>Именные банки</li>
+            <li>Онлайн-трансляция с пасеки</li>
+            <li>Фотоотчёты за сезон</li>
+            <li>Сертификат владельца</li>
+          </ul>
+          <a href="#rent" class="btn btn--line btn--full">Выбрать</a>
+        </div>
+
+        <div class="tariff tariff--featured fade-in">
+          <div class="tariff__badge">Хит выбора</div>
+          <div class="tariff__name">Семейный · ⅓ улья</div>
+          <div class="tariff__price">24 900 ₽ <small>/ сезон</small></div>
+          <div class="tariff__yield">≈ 20 кг мёда</div>
+          <ul class="tariff__list">
+            <li>Мёд вашей доли улья</li>
+            <li>Именные банки</li>
+            <li>Онлайн-трансляция 24/7</li>
+            <li>Фото- и видеоотчёты</li>
+            <li>Экскурсия на пасеку (2 чел.)</li>
+            <li>Сертификат владельца</li>
+          </ul>
+          <a href="#rent" class="btn btn--gold btn--full">Выбрать</a>
+        </div>
+
+        <div class="tariff fade-in">
+          <div class="tariff__name">Премиум · целый улей</div>
+          <div class="tariff__price">59 000 ₽ <small>/ сезон</small></div>
+          <div class="tariff__yield">≈ 55 кг мёда</div>
+          <ul class="tariff__list">
+            <li>Весь мёд вашего улья</li>
+            <li>Именные банки + подарочная упаковка</li>
+            <li>Онлайн-трансляция 24/7</li>
+            <li>Личные фото- и видеоотчёты</li>
+            <li>Экскурсия на пасеку (до 4 чел.)</li>
+            <li>Именная табличка на улье</li>
+          </ul>
+          <a href="#rent" class="btn btn--line btn--full">Выбрать</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ЧТО ВХОДИТ -->
+  <section class="payment" id="included">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-tag">Что входит</span>
+        <h2 class="section-title">Не просто мёд — впечатления</h2>
+      </div>
+      <div class="incl">
+        <div class="incl-item fade-in"><span>🏷️</span><div><h4>Именные банки</h4><p>Мёд в банках с вашим именем и номером улья</p></div></div>
+        <div class="incl-item fade-in"><span>📹</span><div><h4>Онлайн-трансляция</h4><p>Наблюдайте за своим ульем в любое время</p></div></div>
+        <div class="incl-item fade-in"><span>📸</span><div><h4>Отчёты за сезон</h4><p>Фото и видео, как живёт и работает ваш улей</p></div></div>
+        <div class="incl-item fade-in"><span>🚜</span><div><h4>Экскурсия на пасеку</h4><p>Приезжайте познакомиться с пчёлами лично</p></div></div>
+        <div class="incl-item fade-in"><span>📜</span><div><h4>Сертификат владельца</h4><p>Официальное подтверждение аренды улья</p></div></div>
+        <div class="incl-item fade-in"><span>🚚</span><div><h4>Доставка по РФ</h4><p>Привезём ваш мёд в любой город России</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ПОЧЕМУ -->
+  <section class="benefits" id="why">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-tag section-tag--light">Почему это круто</span>
+        <h2 class="section-title section-title--light">Аренда улья — это…</h2>
+      </div>
+      <div class="benefits__grid">
+        <div class="benefit fade-in"><span class="benefit__icon">✅</span><h3>100% честный мёд</h3><p>Вы точно знаете, откуда ваш мёд и как он собран.</p></div>
+        <div class="benefit fade-in"><span class="benefit__icon">🎁</span><h3>Подарок с историей</h3><p>Улей в подарок близким — необычно и запоминается.</p></div>
+        <div class="benefit fade-in"><span class="benefit__icon">🌍</span><h3>Польза природе</h3><p>Вы поддерживаете пчёл и экологию региона.</p></div>
+        <div class="benefit fade-in"><span class="benefit__icon">🍯</span><h3>Свежий урожай</h3><p>Мёд нового сезона — прямо с вашего улья.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="reviews" id="faq" style="background:var(--bg)">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-tag">Вопросы</span>
+        <h2 class="section-title">Частые вопросы</h2>
+      </div>
+      <div class="faq">
+        <div class="faq-item"><button class="faq-q" type="button">А если пчёлы соберут мало мёда?<span></span></button><div class="faq-a"><p>Мы гарантируем минимальный объём мёда по вашему тарифу. Если сезон выдался слабым — компенсируем мёдом с других ульев пасеки того же сорта.</p></div></div>
+        <div class="faq-item"><button class="faq-q" type="button">Можно ли приехать на пасеку?<span></span></button><div class="faq-a"><p>Да! В тарифах «Семейный» и «Премиум» экскурсия уже включена. По тарифу «Проба» — можно организовать за отдельную плату.</p></div></div>
+        <div class="faq-item"><button class="faq-q" type="button">Как я буду следить за ульем?<span></span></button><div class="faq-a"><p>Вы получите доступ к онлайн-трансляции с пасеки и будете получать фото- и видеоотчёты в течение всего сезона в WhatsApp или Telegram.</p></div></div>
+        <div class="faq-item"><button class="faq-q" type="button">Когда я получу свой мёд?<span></span></button><div class="faq-a"><p>Откачка проходит в сентябре, доставка — в октябре. Мёд фасуется в именные банки с вашим именем и номером улья.</p></div></div>
+        <div class="faq-item"><button class="faq-q" type="button">Как оплатить аренду?<span></span></button><div class="faq-a"><p>Картой, по СБП, через SberPay или ЮMoney. Возможна оплата частями — уточните у менеджера.</p></div></div>
+        <div class="faq-item"><button class="faq-q" type="button">Доставка по всей России?<span></span></button><div class="faq-a"><p>Да, доставляем СДЭК, Яндекс Доставкой, DPD, Boxberry и Почтой России — в любой город страны.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA / ЗАЯВКА -->
+  <section class="order" id="rent">
+    <div class="container">
+      <div class="rent-cta">
+        <div class="rent-cta__text">
+          <h2>Забронировать улей</h2>
+          <p>Оставьте заявку — расскажем подробности, поможем выбрать тариф и закрепим за вами улей на сезон. Свяжемся в течение часа.</p>
+          <div class="order__contacts" style="margin-top:24px">
+            <a href="tel:+79068161172" class="contact-link"><span>📞</span>+7 (906) 816-11-72</a>
+            <a href="https://wa.me/79068161172" class="contact-link" target="_blank" rel="noopener"><span>💬</span>WhatsApp</a>
+          </div>
+        </div>
+        <form class="rent-form" id="rentForm" novalidate>
+          <div class="form-group">
+            <label for="rname">Ваше имя *</label>
+            <input type="text" id="rname" name="name" placeholder="Иван" required />
+          </div>
+          <div class="form-group">
+            <label for="phone">Телефон *</label>
+            <input type="tel" id="phone" name="phone" placeholder="+7 (906) 816-11-72" required />
+          </div>
+          <div class="form-group">
+            <label for="rtariff">Тариф</label>
+            <select id="rtariff" name="tariff">
+              <option>Проба · ⅛ улья — 10 500 ₽</option>
+              <option selected>Семейный · ⅓ улья — 24 900 ₽</option>
+              <option>Премиум · целый улей — 59 000 ₽</option>
+              <option>Пока не определился — нужна консультация</option>
+            </select>
+          </div>
+          <label class="consent-label">
+            <input type="checkbox" name="consent" required />
+            <span>Я даю согласие на <a href="privacy.html" target="_blank">обработку персональных данных</a></span>
+          </label>
+          <button type="submit" class="btn btn--gold btn--full btn--lg">Отправить заявку</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__top">
+        <div class="footer__col footer__col--brand">
+          <a href="index.html" class="footer-logo"><img src="images/logo.png" alt="Пасека НИКОЛЬСКИЙ" class="footer-logo__img" /></a>
+          <p>Семейная пасека НИКОЛЬСКИЙ. Натуральный мёд и аренда ульев с доставкой по всей России.</p>
+        </div>
+        <div class="footer__col">
+          <h4>Разделы</h4>
+          <ul>
+            <li><a href="index.html#products">Каталог мёда</a></li>
+            <li><a href="arenda.html">Аренда улья</a></li>
+            <li><a href="index.html#delivery">Доставка</a></li>
+            <li><a href="index.html#payment">Оплата</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h4>Аренда улья</h4>
+          <ul>
+            <li><a href="#how">Как это работает</a></li>
+            <li><a href="#tariffs">Тарифы</a></li>
+            <li><a href="#faq">Вопросы</a></li>
+            <li><a href="#rent">Заявка</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h4>Контакты</h4>
+          <ul>
+            <li><a href="tel:+79068161172">+7 (906) 816-11-72</a></li>
+            <li><a href="https://wa.me/79068161172" target="_blank" rel="noopener">WhatsApp</a></li>
+            <li><a href="https://t.me/+79068161172" target="_blank" rel="noopener">Telegram</a></li>
+            <li><a href="https://vk.com/write-79068161172" target="_blank" rel="noopener">ВКонтакте</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p>© 2026 Пасека НИКОЛЬСКИЙ. Все права защищены.</p>
+        <div class="footer__legal">
+          <a href="privacy.html">Политика конфиденциальности</a>
+          <a href="offer.html">Публичная оферта</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <div class="toast" id="toast"><span class="toast__icon">🐝</span><span>Заявка принята! Свяжемся в течение часа.</span></div>
+
+  <script src="script.js"></script>
+</body>
+</html>

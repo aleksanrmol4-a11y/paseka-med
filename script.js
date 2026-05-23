@@ -119,6 +119,51 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  /* ─── FAQ-АККОРДЕОН ─── */
+  document.querySelectorAll('.faq-item').forEach(item => {
+    const q = item.querySelector('.faq-q');
+    const a = item.querySelector('.faq-a');
+    if (!q || !a) return;
+    q.addEventListener('click', () => {
+      const open = item.classList.contains('open');
+      document.querySelectorAll('.faq-item.open').forEach(o => {
+        o.classList.remove('open');
+        const oa = o.querySelector('.faq-a');
+        if (oa) oa.style.maxHeight = null;
+      });
+      if (!open) {
+        item.classList.add('open');
+        a.style.maxHeight = a.scrollHeight + 'px';
+      }
+    });
+  });
+
+  /* ─── ФОРМА АРЕНДЫ УЛЬЯ ─── */
+  const rentForm = document.getElementById('rentForm');
+  if (rentForm) {
+    const toastR = document.getElementById('toast');
+    rentForm.addEventListener('submit', e => {
+      e.preventDefault();
+      const name = rentForm.querySelector('[name="name"]').value.trim();
+      const phone = rentForm.querySelector('[name="phone"]').value.trim();
+      const consent = rentForm.querySelector('[name="consent"]').checked;
+      if (!name || phone.replace(/\D/g, '').length < 11 || !consent) {
+        const bad = !name ? rentForm.querySelector('[name="name"]')
+          : (phone.replace(/\D/g, '').length < 11 ? rentForm.querySelector('[name="phone"]')
+          : rentForm.querySelector('.consent-label'));
+        if (bad) { bad.style.animation = 'shake 0.4s ease'; bad.addEventListener('animationend', () => bad.style.animation = '', { once: true }); }
+        return;
+      }
+      rentForm.reset();
+      if (toastR) {
+        const span = toastR.querySelector('span:last-child');
+        if (span) span.textContent = 'Заявка на аренду улья принята! Свяжемся в течение часа.';
+        toastR.classList.add('show');
+        setTimeout(() => toastR.classList.remove('show'), 4500);
+      }
+    });
+  }
+
   /* ─── СЛАЙДЕР «ЖИЗНЬ ПАСЕКИ» ─── */
   const slider = document.getElementById('slider');
   if (slider) {
