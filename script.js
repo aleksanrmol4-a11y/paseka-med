@@ -119,6 +119,172 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  /* ─── КОРЗИНА (localStorage) ─── */
+  (function initCart() {
+    const KEY = 'nikolsky_cart';
+    const drawer = document.getElementById('cartDrawer');
+    if (!drawer) return;
+    const cartBtn = document.getElementById('cartBtn');
+    const overlay = document.getElementById('cartOverlay');
+    const closeBtn = document.getElementById('cartClose');
+    const body = document.getElementById('cartBody');
+    const foot = document.getElementById('cartFoot');
+    const countEl = document.getElementById('cartCount');
+    const totalEl = document.getElementById('cartTotal');
+    const coTotalEl = document.getElementById('coTotal');
+    const titleEl = document.getElementById('cartTitle');
+    const checkoutBtn = document.getElementById('cartCheckoutBtn');
+    const backBtn = document.getElementById('cartBack');
+    const checkoutForm = document.getElementById('cartCheckout');
+    const toast = document.getElementById('toast');
+
+    let cart = [];
+    try { cart = JSON.parse(localStorage.getItem(KEY)) || []; } catch (e) { cart = []; }
+
+    const save = () => localStorage.setItem(KEY, JSON.stringify(cart));
+    const count = () => cart.reduce((s, i) => s + i.qty, 0);
+    const total = () => cart.reduce((s, i) => s + i.qty * i.price, 0);
+    const fmt = n => n.toLocaleString('ru-RU') + ' ₽';
+
+    function render() {
+      const c = count();
+      countEl.textContent = c;
+      countEl.classList.toggle('empty', c === 0);
+      totalEl.textContent = fmt(total());
+      if (coTotalEl) coTotalEl.textContent = fmt(total());
+      if (!cart.length) {
+        body.innerHTML = '<div class="cart-empty"><span>🛒</span>Корзина пуста.<br>Добавьте мёд из каталога.</div>';
+        foot.style.display = 'none';
+        return;
+      }
+      foot.style.display = '';
+      body.innerHTML = cart.map(i => `
+        <div class="cart-item" data-id="${i.id}">
+          <div><div class="cart-item__name">${i.name}</div><div class="cart-item__unit">${i.unit} · ${fmt(i.price)}</div></div>
+          <div class="cart-item__price">${fmt(i.price * i.qty)}</div>
+          <div class="cart-item__controls">
+            <div class="qty">
+              <button type="button" data-act="dec" aria-label="Меньше">−</button>
+              <span>${i.qty}</span>
+              <button type="button" data-act="inc" aria-label="Больше">+</button>
+            </div>
+            <button type="button" class="cart-item__remove" data-act="rm">Удалить</button>
+          </div>
+        </div>`).join('');
+    }
+
+    function add(item) {
+      const ex = cart.find(i => i.id === item.id);
+      if (ex) ex.qty++; else cart.push({ ...item, qty: 1 });
+      save(); render();
+    }
+    const openCart = () => { drawer.classList.add('open'); overlay.classList.add('open'); document.body.style.overflow = 'hidden'; };
+    const closeCart = () => { drawer.classList.remove('open', 'checkout-mode'); overlay.classList.remove('open'); document.body.style.overflow = ''; if (titleEl) titleEl.textContent = 'Корзина'; };
+
+    document.querySelectorAll('.add-to-cart').forEach(btn => {
+      btn.addEventListener('click', () => {
+        add({ id: btn.dataset.id, name: btn.dataset.name, price: +btn.dataset.price, unit: btn.dataset.unit || '' });
+        openCart();
+        const orig = btn.textContent;
+        btn.textContent = '✓ В корзине';
+        setTimeout(() => { btn.textContent = orig; }, 1200);
+      });
+    });
+
+    body.addEventListener('click', e => {
+      const item = e.target.closest('.cart-item'); if (!item) return;
+      const id = item.dataset.id; const obj = cart.find(i => i.id === id); if (!obj) return;
+      const act = e.target.dataset.act;
+      if (act === 'inc') obj.qty++;
+      else if (act === 'dec') { obj.qty--; if (obj.qty <= 0) cart = cart.filter(i => i.id !== id); }
+      else if (act === 'rm') cart = cart.filter(i => i.id !== id);
+      else return;
+      save(); render();
+    });
+
+    cartBtn.addEventListener('click', openCart);
+    closeBtn.addEventListener('click', closeCart);
+    overlay.addEventListener('click', closeCart);
+
+    checkoutBtn.addEventListener('click', () => {
+      if (!cart.length) return;
+      drawer.classList.add('checkout-mode');
+      if (titleEl) titleEl.textContent = 'Оформление';
+    });
+    backBtn.addEventListener('click', () => {
+      drawer.classList.remove('checkout-mode');
+      if (titleEl) titleEl.textContent = 'Корзина';
+    });
+
+    const coDelivery = document.getElementById('coDelivery');
+    const coAddrGroup = document.getElementById('coAddressGroup');
+    coDelivery.addEventListener('change', () => {
+      coAddrGroup.style.display = coDelivery.value === 'Самовывоз' ? 'none' : '';
+    });
+
+    const coPhone = document.getElementById('coPhone');
+    coPhone.addEventListener('input', e => {
+      let v = e.target.value.replace(/\D/g, '');
+      if (v.startsWith('8')) v = '7' + v.slice(1);
+      if (!v.startsWith('7') && v.length) v = '7' + v;
+      v = v.slice(0, 11);
+      let f = '';
+      if (v.length) f = '+7';
+      if (v.length > 1) f += ' (' + v.slice(1, 4);
+      if (v.length >= 4) f += ')';
+      if (v.length > 4) f += ' ' + v.slice(4, 7);
+      if (v.length > 7) f += '-' + v.slice(7, 9);
+      if (v.length > 9) f += '-' + v.slice(9, 11);
+      e.target.value = f;
+    });
+
+    function shake(el) {
+      if (!el) return;
+      el.style.animation = 'none'; el.offsetHeight;
+      el.style.animation = 'shake .4s ease';
+      el.addEventListener('animationend', () => el.style.animation = '', { once: true });
+    }
+
+    checkoutForm.addEventListener('submit', e => {
+      e.preventDefault();
+      const name = document.getElementById('coName').value.trim();
+      const phone = document.getElementById('coPhone').value.trim();
+      const consent = document.getElementById('coConsent').checked;
+      if (!name) { shake(document.getElementById('coName')); return; }
+      if (phone.replace(/\D/g, '').length < 11) { shake(document.getElementById('coPhone')); return; }
+      if (!consent) { shake(document.getElementById('coConsentLabel')); return; }
+
+      const items = cart.map(i => `• ${i.name} (${i.unit}) ×${i.qty} = ${fmt(i.price * i.qty)}`).join('\n');
+      const message =
+        `🛒 Заказ — Пасека НИКОЛЬСКИЙ\n──────────────\n${items}\n──────────────\n` +
+        `Итого: ${fmt(total())}\n👤 ${name}\n📞 ${phone}\n` +
+        `🚚 ${coDelivery.value}\n🏠 ${document.getElementById('coAddress').value || '—'}\n` +
+        `💳 ${document.getElementById('coPayment').value}\n💬 ${document.getElementById('coComment').value || '—'}`;
+
+      // Telegram: впишите TOKEN и CHAT_ID, чтобы заказы приходили в бот
+      const TOKEN = 'ВСТАВЬТЕ_ТОКЕН_БОТА';
+      const CHAT_ID = 'ВСТАВЬТЕ_CHAT_ID';
+      if (TOKEN !== 'ВСТАВЬТЕ_ТОКЕН_БОТА') {
+        fetch(`https://api.telegram.org/bot${TOKEN}/sendMessage`, {
+          method: 'POST', headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ chat_id: CHAT_ID, text: message })
+        }).catch(() => {});
+      }
+
+      cart = []; save(); render();
+      checkoutForm.reset();
+      closeCart();
+      if (toast) {
+        const s = toast.querySelector('span:last-child');
+        if (s) s.textContent = 'Заказ оформлен! Свяжемся в течение часа.';
+        toast.classList.add('show');
+        setTimeout(() => toast.classList.remove('show'), 4500);
+      }
+    });
+
+    render();
+  })();
+
   /* ─── FAQ-АККОРДЕОН ─── */
   document.querySelectorAll('.faq-item').forEach(item => {
     const q = item.querySelector('.faq-q');
