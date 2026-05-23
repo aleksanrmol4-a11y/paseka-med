@@ -61,36 +61,19 @@
 
   <!-- ═══ HERO ═══ -->
   <section class="hero" id="home">
-    <div class="hero__bg" aria-hidden="true">
-      <span class="blob blob--1"></span>
-      <span class="blob blob--2"></span>
-    </div>
+    <video class="hero__video" autoplay muted loop playsinline preload="auto"
+           poster="https://images.pexels.com/photos/302163/pexels-photo-302163.jpeg?auto=compress&cs=tinysrgb&w=1600">
+      <source src="https://videos.pexels.com/video-files/18358802/18358802-hd_1920_1080_30fps.mp4" type="video/mp4">
+    </video>
+    <div class="hero__overlay" aria-hidden="true"></div>
     <div class="container">
-      <div class="hero__grid">
-        <div class="hero__content">
-          <span class="hero__eyebrow">🍯 Семейная пасека с 2009 года</span>
-          <h1 class="hero__title">Натуральный<br>мёд <span>с пасеки</span></h1>
-          <p class="hero__sub">Собираем вручную в экологически чистых угодьях. Без подогрева, без сахара, без добавок — только живой мёд.</p>
-          <div class="hero__cta">
-            <a href="#order" class="btn btn--dark btn--lg">Заказать мёд</a>
-            <a href="#products" class="btn btn--line btn--lg">Смотреть сорта</a>
-          </div>
-        </div>
-        <div class="hero__visual">
-          <div class="hero__photo">
-            <img src="https://images.pexels.com/photos/302163/pexels-photo-302163.jpeg?auto=compress&cs=tinysrgb&w=880&h=1100&fit=crop" alt="Натуральный мёд стекает с деревянной ложки" loading="eager" />
-          </div>
-          <div class="scene__stamp" aria-hidden="true">
-            <svg viewBox="0 0 120 120">
-              <defs>
-                <path id="stampPath" d="M 60,60 m -42,0 a 42,42 0 1,1 84,0 a 42,42 0 1,1 -84,0" />
-              </defs>
-              <text class="scene__stamp-text">
-                <textPath href="#stampPath">100% НАТУРАЛЬНЫЙ • БЕЗ САХАРА • С ПАСЕКИ • </textPath>
-              </text>
-            </svg>
-            <span class="scene__stamp-center">✓</span>
-          </div>
+      <div class="hero__content">
+        <span class="hero__eyebrow">🍯 Семейная пасека с 2009 года</span>
+        <h1 class="hero__title">Натуральный мёд<br><span>прямо с пасеки</span></h1>
+        <p class="hero__sub">Собираем вручную в экологически чистых угодьях. Без подогрева, без сахара, без добавок — только живой мёд.</p>
+        <div class="hero__cta">
+          <a href="#order" class="btn btn--gold btn--lg">Заказать мёд</a>
+          <a href="#products" class="btn btn--glass btn--lg">Смотреть сорта</a>
         </div>
       </div>
 
