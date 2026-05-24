@@ -261,15 +261,9 @@ document.addEventListener('DOMContentLoaded', () => {
         `🚚 ${coDelivery.value}\n🏠 ${document.getElementById('coAddress').value || '—'}\n` +
         `💳 ${document.getElementById('coPayment').value}\n💬 ${document.getElementById('coComment').value || '—'}`;
 
-      // Telegram: впишите TOKEN и CHAT_ID, чтобы заказы приходили в бот
-      const TOKEN = 'ВСТАВЬТЕ_ТОКЕН_БОТА';
-      const CHAT_ID = 'ВСТАВЬТЕ_CHAT_ID';
-      if (TOKEN !== 'ВСТАВЬТЕ_ТОКЕН_БОТА') {
-        fetch(`https://api.telegram.org/bot${TOKEN}/sendMessage`, {
-          method: 'POST', headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ chat_id: CHAT_ID, text: message })
-        }).catch(() => {});
-      }
+      // Отправка заказа в WhatsApp с готовым текстом (работает без бэкенда).
+      // Клиент жмёт «отправить» — заказ приходит вам в WhatsApp на +7 906 816-11-72.
+      window.open('https://wa.me/79068161172?text=' + encodeURIComponent(message), '_blank');
 
       cart = []; save(); render();
       checkoutForm.reset();
@@ -320,6 +314,10 @@ document.addEventListener('DOMContentLoaded', () => {
         if (bad) { bad.style.animation = 'shake 0.4s ease'; bad.addEventListener('animationend', () => bad.style.animation = '', { once: true }); }
         return;
       }
+      const tariff = (rentForm.querySelector('[name="tariff"]') || {}).value || '—';
+      const msg = `🐝 Заявка на аренду улья — НИКОЛЬСКИЙ\n──────────────\n👤 ${name}\n📞 ${phone}\n📦 Тариф: ${tariff}`;
+      window.open('https://wa.me/79068161172?text=' + encodeURIComponent(msg), '_blank');
+
       rentForm.reset();
       if (toastR) {
         const span = toastR.querySelector('span:last-child');
@@ -457,36 +455,11 @@ document.addEventListener('DOMContentLoaded', () => {
         `💳 Оплата: ${payment}\n` +
         `💬 Комментарий: ${data.get('comment') || '—'}`;
 
-      /* ── Telegram ──
-         Замените TOKEN и CHAT_ID на ваши данные.
-         Получить TOKEN: @BotFather в Telegram → /newbot
-         Получить CHAT_ID: @userinfobot → напишите ему, он пришлёт ваш ID
-      */
-      const TOKEN   = 'ВСТАВЬТЕ_ТОКЕН_БОТА';
-      const CHAT_ID = 'ВСТАВЬТЕ_CHAT_ID';
-
-      submitBtn.disabled = true;
-      submitBtn.textContent = 'Отправляем…';
-
-      try {
-        if (TOKEN !== 'ВСТАВЬТЕ_ТОКЕН_БОТА') {
-          const res = await fetch(`https://api.telegram.org/bot${TOKEN}/sendMessage`, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ chat_id: CHAT_ID, text: message })
-          });
-          if (!res.ok) throw new Error('Telegram error');
-        }
-        orderForm.reset();
-        if (addressGroup) addressGroup.style.display = 'none';
-        showToast('🍯 Заявка принята! Свяжемся в течение часа.');
-      } catch (err) {
-        console.error('Ошибка отправки:', err);
-        showToast('✅ Заявка зафиксирована! Скоро свяжемся.');
-      } finally {
-        submitBtn.disabled = false;
-        submitBtn.textContent = 'Отправить заявку';
-      }
+      // Отправка заявки в WhatsApp с готовым текстом (работает без бэкенда).
+      window.open('https://wa.me/79068161172?text=' + encodeURIComponent(message), '_blank');
+      orderForm.reset();
+      if (addressGroup) addressGroup.style.display = 'none';
+      showToast('🍯 Заявка принята! Свяжемся в течение часа.');
     });
   }
 
