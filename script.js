@@ -23,7 +23,96 @@ function sendToTelegram(text) {
   });
 }
 
+/* ── Применение настроек из content.json (правится через /admin) ── */
+async function applyContent() {
+  let c;
+  try {
+    const r = await fetch('content.json?_=' + Date.now());
+    if (!r.ok) return;
+    c = await r.json();
+  } catch (e) { return; }
+  if (!c) return;
+
+  // Счётчики рекламы/аналитики
+  const ct = c.counters || {};
+  if (ct.metrika) injectMetrika(ct.metrika);
+  if (ct.ga) injectGA(ct.ga);
+  if (ct.vk) injectVK(ct.vk);
+
+  // Ключевые слова (SEO) под конкретную страницу
+  const page = location.pathname.indexOf('arenda') !== -1 ? 'arenda' : 'index';
+  const kw = (c.keywords || {})[page];
+  if (kw) {
+    let m = document.querySelector('meta[name="keywords"]');
+    if (!m) { m = document.createElement('meta'); m.setAttribute('name', 'keywords'); document.head.appendChild(m); }
+    m.setAttribute('content', kw);
+  }
+
+  // Телефон (ссылки tel/WhatsApp + видимый номер в шапке/подвале)
+  if (c.phone && c.phoneRaw) {
+    document.querySelectorAll('a[href^="tel:"]').forEach(a => { a.href = 'tel:+' + c.phoneRaw; });
+    document.querySelectorAll('a[href*="wa.me/"]').forEach(a => { a.href = a.href.replace(/wa\.me\/\d+/, 'wa.me/' + c.phoneRaw); });
+    document.querySelectorAll('.header__phone').forEach(el => {
+      const label = el.querySelector('.header__phone-label');
+      el.textContent = '';
+      if (label) el.appendChild(label);
+      el.appendChild(document.createTextNode(c.phone));
+    });
+  }
+
+  // Цены товаров (карточка + цена за кг + кнопка в корзину)
+  if (c.prices) {
+    document.querySelectorAll('.add-to-cart').forEach(btn => {
+      const id = btn.dataset.id;
+      const price = c.prices[id];
+      if (!price) return;
+      btn.dataset.price = price;
+      const card = btn.closest('.product-card');
+      if (!card) return;
+      const priceEl = card.querySelector('.product-card__price');
+      if (priceEl) priceEl.textContent = price + ' ₽';
+      const unitEl = card.querySelector('.product-card__unit');
+      if (unitEl) unitEl.textContent = '500 г · ' + (price * 2) + ' ₽/кг';
+    });
+  }
+}
+
+function injectMetrika(id) {
+  if (window.ym) return;
+  (function (m, e, t, r, i) {
+    m[i] = m[i] || function () { (m[i].a = m[i].a || []).push(arguments); };
+    m[i].l = 1 * new Date();
+    var k = e.createElement(t), a = e.getElementsByTagName(t)[0];
+    k.async = 1; k.src = r; a.parentNode.insertBefore(k, a);
+  })(window, document, 'script', 'https://mc.yandex.ru/metrika/tag.js', 'ym');
+  window.ym(id, 'init', { clickmap: true, trackLinks: true, accurateTrackBounce: true, webvisor: true });
+}
+
+function injectGA(id) {
+  const s = document.createElement('script');
+  s.async = 1; s.src = 'https://www.googletagmanager.com/gtag/js?id=' + id;
+  document.head.appendChild(s);
+  window.dataLayer = window.dataLayer || [];
+  window.gtag = function () { window.dataLayer.push(arguments); };
+  window.gtag('js', new Date());
+  window.gtag('config', id);
+}
+
+function injectVK(id) {
+  var _tmr = window._tmr || (window._tmr = []);
+  _tmr.push({ id: id, type: 'pageView', start: (new Date()).getTime() });
+  (function (d, w, idn) {
+    if (d.getElementById(idn)) return;
+    var ts = d.createElement('script'); ts.type = 'text/javascript'; ts.async = true; ts.id = idn;
+    ts.src = 'https://top-fwz1.mail.ru/js/code.js';
+    var f = function () { var s = d.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ts, s); };
+    if (w.opera === '[object Opera]') { d.addEventListener('DOMContentLoaded', f, false); } else { f(); }
+  })(document, window, 'tmr-code');
+}
+
 document.addEventListener('DOMContentLoaded', () => {
+  applyContent();
+
 
   /* ─── COOKIE BANNER ─── */
   const cookieBar = document.getElementById('cookieBar');
