@@ -6,11 +6,14 @@
 const TG_TOKEN = '7818572051:AAEoWoizhJybzlOgGmFmlJjrJ4A4AqQ2Lx0';
 const TG_CHAT  = '666070596';
 
-/* ── Онлайн-оплата (Продамус) ──
-   Когда зарегистрируешь Продамус — впиши сюда свой адрес платёжной формы,
-   например: 'nikolskymed.payform.ru'. После этого при выборе «Онлайн»
-   клиент после оформления сразу переходит на страницу оплаты картой/СБП.
-   Пустое значение = оплата онлайн выключена (заказ просто уходит в Telegram). */
+/* ── Онлайн-оплата ──
+   ЮKassa (через Cloudflare Worker): впиши адрес задеплоенного воркера,
+   например 'https://nikolsky-pay.ИМЯ.workers.dev'. Это включает оплату картой/СБП.
+   Секретный ключ ЮKassa хранится в самом воркере, НЕ здесь. */
+const PAY_WORKER_URL = '';
+
+/* Запасной вариант — Продамус (для самозанятых, без своего сервера).
+   Если используешь его вместо ЮKassa — впиши домен, напр. 'nikolskymed.payform.ru'. */
 const PAYFORM_DOMAIN = '';
 function sendToTelegram(text) {
   return fetch('https://api.telegram.org/bot' + TG_TOKEN + '/sendMessage', {
@@ -282,8 +285,37 @@ document.addEventListener('DOMContentLoaded', () => {
       // Заказ уходит в Telegram-бот @Alexander_marketing_bot
       sendToTelegram(message).catch(() => {});
 
-      // Онлайн-оплата: если выбран «Онлайн» и подключён Продамус — переходим к оплате
       const payOnline = document.getElementById('coPayment').value.indexOf('Онлайн') === 0;
+
+      // Онлайн-оплата через ЮKassa (Worker): создаём платёж и уходим на страницу оплаты
+      if (PAY_WORKER_URL && payOnline) {
+        const co = document.getElementById('coComment').value;
+        const itemsCopy = cart.map(i => ({ name: i.name, unit: i.unit, price: i.price, qty: i.qty }));
+        fetch(PAY_WORKER_URL.replace(/\/$/, '') + '/create', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ items: itemsCopy, phone: phone, delivery: coDelivery.value, comment: co })
+        })
+          .then(r => r.json())
+          .then(d => {
+            if (d && d.confirmation_url) {
+              cart = []; save(); render(); checkoutForm.reset();
+              window.location.href = d.confirmation_url;
+            } else { throw new Error('no_url'); }
+          })
+          .catch(() => {
+            cart = []; save(); render(); checkoutForm.reset(); closeCart();
+            if (toast) {
+              const s = toast.querySelector('span:last-child');
+              if (s) s.textContent = 'Заказ принят! Пришлём ссылку на оплату в течение часа.';
+              toast.classList.add('show');
+              setTimeout(() => toast.classList.remove('show'), 4500);
+            }
+          });
+        return;
+      }
+
+      // Онлайн-оплата через Продамус (если используется вместо ЮKassa)
       if (PAYFORM_DOMAIN && payOnline) {
         const p = new URLSearchParams();
         p.set('do', 'pay');
