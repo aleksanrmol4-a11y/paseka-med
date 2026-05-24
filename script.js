@@ -2,6 +2,17 @@
    НИКОЛЬСКИЙ ПАСЕКА — script.js
    ═══════════════════════════════════════════════════ */
 
+/* ── Telegram-бот (общий с сайтом Люсъен: @Alexander_marketing_bot) ── */
+const TG_TOKEN = '7818572051:AAEoWoizhJybzlOgGmFmlJjrJ4A4AqQ2Lx0';
+const TG_CHAT  = '666070596';
+function sendToTelegram(text) {
+  return fetch('https://api.telegram.org/bot' + TG_TOKEN + '/sendMessage', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ chat_id: TG_CHAT, text: text, disable_web_page_preview: true })
+  });
+}
+
 document.addEventListener('DOMContentLoaded', () => {
 
   /* ─── COOKIE BANNER ─── */
@@ -261,9 +272,8 @@ document.addEventListener('DOMContentLoaded', () => {
         `🚚 ${coDelivery.value}\n🏠 ${document.getElementById('coAddress').value || '—'}\n` +
         `💳 ${document.getElementById('coPayment').value}\n💬 ${document.getElementById('coComment').value || '—'}`;
 
-      // Отправка заказа в WhatsApp с готовым текстом (работает без бэкенда).
-      // Клиент жмёт «отправить» — заказ приходит вам в WhatsApp на +7 906 816-11-72.
-      window.open('https://wa.me/79068161172?text=' + encodeURIComponent(message), '_blank');
+      // Заказ уходит в Telegram-бот @Alexander_marketing_bot
+      sendToTelegram(message).catch(() => {});
 
       cart = []; save(); render();
       checkoutForm.reset();
@@ -316,7 +326,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }
       const tariff = (rentForm.querySelector('[name="tariff"]') || {}).value || '—';
       const msg = `🐝 Заявка на аренду улья — НИКОЛЬСКИЙ\n──────────────\n👤 ${name}\n📞 ${phone}\n📦 Тариф: ${tariff}`;
-      window.open('https://wa.me/79068161172?text=' + encodeURIComponent(msg), '_blank');
+      sendToTelegram(msg).catch(() => {});
 
       rentForm.reset();
       if (toastR) {
@@ -455,8 +465,8 @@ document.addEventListener('DOMContentLoaded', () => {
         `💳 Оплата: ${payment}\n` +
         `💬 Комментарий: ${data.get('comment') || '—'}`;
 
-      // Отправка заявки в WhatsApp с готовым текстом (работает без бэкенда).
-      window.open('https://wa.me/79068161172?text=' + encodeURIComponent(message), '_blank');
+      // Заявка уходит в Telegram-бот @Alexander_marketing_bot
+      sendToTelegram(message).catch(() => {});
       orderForm.reset();
       if (addressGroup) addressGroup.style.display = 'none';
       showToast('🍯 Заявка принята! Свяжемся в течение часа.');
