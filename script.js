@@ -5,6 +5,13 @@
 /* ── Telegram-бот (общий с сайтом Люсъен: @Alexander_marketing_bot) ── */
 const TG_TOKEN = '7818572051:AAEoWoizhJybzlOgGmFmlJjrJ4A4AqQ2Lx0';
 const TG_CHAT  = '666070596';
+
+/* ── Онлайн-оплата (Продамус) ──
+   Когда зарегистрируешь Продамус — впиши сюда свой адрес платёжной формы,
+   например: 'nikolskymed.payform.ru'. После этого при выборе «Онлайн»
+   клиент после оформления сразу переходит на страницу оплаты картой/СБП.
+   Пустое значение = оплата онлайн выключена (заказ просто уходит в Telegram). */
+const PAYFORM_DOMAIN = '';
 function sendToTelegram(text) {
   return fetch('https://api.telegram.org/bot' + TG_TOKEN + '/sendMessage', {
     method: 'POST',
@@ -274,6 +281,25 @@ document.addEventListener('DOMContentLoaded', () => {
 
       // Заказ уходит в Telegram-бот @Alexander_marketing_bot
       sendToTelegram(message).catch(() => {});
+
+      // Онлайн-оплата: если выбран «Онлайн» и подключён Продамус — переходим к оплате
+      const payOnline = document.getElementById('coPayment').value.indexOf('Онлайн') === 0;
+      if (PAYFORM_DOMAIN && payOnline) {
+        const p = new URLSearchParams();
+        p.set('do', 'pay');
+        p.set('order_id', 'NM-' + Date.now());
+        p.set('customer_phone', phone);
+        cart.forEach((i, idx) => {
+          p.set(`products[${idx}][name]`, `${i.name} (${i.unit})`);
+          p.set(`products[${idx}][price]`, i.price);
+          p.set(`products[${idx}][quantity]`, i.qty);
+        });
+        p.set('urlSuccess', 'https://nikolskymed.ru/?paid=1');
+        const payUrl = 'https://' + PAYFORM_DOMAIN + '/?' + p.toString();
+        cart = []; save(); render(); checkoutForm.reset();
+        window.location.href = payUrl; // переход на страницу оплаты
+        return;
+      }
 
       cart = []; save(); render();
       checkoutForm.reset();
