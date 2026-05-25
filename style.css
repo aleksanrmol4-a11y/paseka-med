@@ -426,6 +426,21 @@ h1, h2, h3, h4 { font-family: 'Inter', sans-serif; line-height: 1.18; font-weigh
 .rent-cta__text p { color: rgba(255,255,255,0.7); font-size: 16px; line-height: 1.7; }
 .rent-form { background: var(--white); border-radius: var(--r); padding: 30px; display: flex; flex-direction: column; gap: 16px; }
 
+/* ─── ИКОНКИ (line SVG, единый стиль) ─── */
+.icon { display: inline-flex; align-items: center; justify-content: center; }
+.icon svg { width: 100%; height: 100%; display: block; }
+.contact-link span.icon { width: 20px; height: 20px; color: var(--gold); flex-shrink: 0; }
+.og { display: flex; align-items: center; gap: 9px; }
+.og .icon { width: 16px; height: 16px; color: var(--gold); flex-shrink: 0; }
+.pof-icon { width: 20px; height: 20px; color: var(--gold); }
+.benefit__icon { display: block; width: 40px; height: 40px; margin: 0 auto 18px; color: var(--gold); }
+.benefit__icon svg { stroke-width: 1.4; }
+.pay__icon { display: block; width: 34px; height: 34px; margin: 0 auto 14px; color: var(--gold); }
+.about-feature .icon { width: 26px; height: 26px; color: var(--gold); flex-shrink: 0; margin-top: 2px; }
+.incl-item .icon { width: 28px; height: 28px; color: var(--gold); flex-shrink: 0; }
+.delivery__note .icon { width: 22px; height: 22px; color: var(--gold); flex-shrink: 0; }
+.bulk__emoji.icon { width: 40px; height: 40px; color: var(--gold); }
+
 /* ─── КОРЗИНА ─── */
 .cart-btn { position: relative; display: flex; align-items: center; justify-content: center; width: 42px; height: 42px; border-radius: 50%; background: var(--ink); color: #fff; transition: all var(--t); }
 .cart-btn svg { width: 20px; height: 20px; }
